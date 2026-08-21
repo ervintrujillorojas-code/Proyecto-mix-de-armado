@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piloto Armado en Entrega — Barranquilla</title>
+<style>
+  .pa-root {
+    --paper:        #eef1f5;
+    --surface:      #ffffff;
+    --surface-2:    #f5f7fa;
+    --ink:          #10151a;
+    --ink-2:        #48505c;
+    --muted:        #7c8494;
+    --line:         #dde2e8;
+    --accent:       #2a78d6;
+    --accent-deep:  #184f95;
+    --accent-soft:  #dce9fa;
+    --good:         #0ca30c;
+    --good-soft:    #e3f7e3;
+    --critical:     #d03b3b;
+    --critical-soft:#fbe4e4;
+    --warn:         #bf8f00;
+    --warn-soft:    #fbf1d6;
+    --cat-1:        #2a78d6;
+    --cat-2:        #eb6834;
+    --cat-3:        #1baf7a;
+    --shadow:       0 1px 2px rgba(16,21,26,0.05);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .pa-root {
+      --paper:        #10141b;
+      --surface:      #171b23;
+      --surface-2:    #1c212b;
+      --ink:          #f5f7fa;
+      --ink-2:        #c7ccd6;
+      --muted:        #8b93a3;
+      --line:         #2a3038;
+      --accent:       #3987e5;
+      --accent-deep:  #7fb2ec;
+      --accent-soft:  rgba(57,135,229,0.18);
+      --good:         #17c317;
+      --good-soft:    rgba(23,195,23,0.14);
+      --critical:     #e6635f;
+      --critical-soft:rgba(230,99,95,0.16);
+      --warn:         #e0ab2e;
+      --warn-soft:    rgba(224,171,46,0.14);
+      --cat-1:        #3987e5;
+      --cat-2:        #d95926;
+      --cat-3:        #199e70;
+      --shadow:       0 1px 2px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] .pa-root {
+    --paper:        #10141b;
+    --surface:      #171b23;
+    --surface-2:    #1c212b;
+    --ink:          #f5f7fa;
+    --ink-2:        #c7ccd6;
+    --muted:        #8b93a3;
+    --line:         #2a3038;
+    --accent:       #3987e5;
+    --accent-deep:  #7fb2ec;
+    --accent-soft:  rgba(57,135,229,0.18);
+    --good:         #17c317;
+    --good-soft:    rgba(23,195,23,0.14);
+    --critical:     #e6635f;
+    --critical-soft:rgba(230,99,95,0.16);
+    --warn:         #e0ab2e;
+    --warn-soft:    rgba(224,171,46,0.14);
+    --cat-1:        #3987e5;
+    --cat-2:        #d95926;
+    --cat-3:        #199e70;
+    --shadow:       0 1px 2px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] .pa-root {
+    --paper:        #eef1f5;
+    --surface:      #ffffff;
+    --surface-2:    #f5f7fa;
+    --ink:          #10151a;
+    --ink-2:        #48505c;
+    --muted:        #7c8494;
+    --line:         #dde2e8;
+    --accent:       #2a78d6;
+    --accent-deep:  #184f95;
+    --accent-soft:  #dce9fa;
+    --good:         #0ca30c;
+    --good-soft:    #e3f7e3;
+    --critical:     #d03b3b;
+    --critical-soft:#fbe4e4;
+    --warn:         #bf8f00;
+    --warn-soft:    #fbf1d6;
+    --cat-1:        #2a78d6;
+    --cat-2:        #eb6834;
+    --cat-3:        #1baf7a;
+    --shadow:       0 1px 2px rgba(16,21,26,0.05);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+
+  .pa-root {
+    font-family: 'Source Sans 3', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 28px 20px 60px;
+  }
+  .pa-wrap { max-width: 1180px; margin: 0 auto; }
+
+  .pa-mono {
+    font-family: 'IBM Plex Mono', 'Cascadia Mono', 'SFMono-Regular', Consolas, 'DejaVu Sans Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .pa-cond {
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', 'Segoe UI', sans-serif;
+  }
+
+  /* ---------- header ---------- */
+  .pa-manifest {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-bottom: 14px;
+    background: var(--surface);
+  }
+  .pa-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  h1.pa-title {
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .pa-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 10px 5px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .pa-chip::before { content: ''; width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  .pa-chip-warn { background: var(--warn-soft); color: var(--warn); }
+  .pa-chip-warn::before { background: var(--warn); }
+  .pa-subtitle {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    max-width: 74ch;
+    margin: 10px 0 30px;
+  }
+
+  /* ---------- tabs ---------- */
+  .pa-tabs {
+    display: flex;
+    gap: 22px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 6px;
+  }
+  .pa-tab-btn {
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    padding: 10px 2px 12px;
+    cursor: pointer;
+    position: relative;
+  }
+  .pa-tab-btn:hover { color: var(--ink-2); }
+  .pa-tab-btn.is-active { color: var(--accent-deep); }
+  .pa-tab-btn.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .pa-tabpanel[hidden] { display: none; }
+  .pa-tab-range {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 16px 0 22px;
+  }
+
+  /* ---------- KPI row ---------- */
+  .pa-kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  .pa-kpi {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+  .pa-kpi .pa-kpi-label {
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .pa-kpi .pa-kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .pa-kpi .pa-kpi-sub {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .pa-kpi.pa-kpi-hero .pa-kpi-value { color: var(--accent-deep); }
+
+  /* ---------- sections ---------- */
+  .pa-section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 22px 24px 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .pa-section h2 {
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .pa-section .pa-section-note {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    max-width: 80ch;
+  }
+  .pa-hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0 0 16px;
+  }
+  .pa-grid-2 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+  @media (max-width: 860px) { .pa-grid-2 { grid-template-columns: 1fr; } }
+
+  /* ---------- legend ---------- */
+  .pa-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
+  .pa-legend-item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-2); }
+  .pa-legend-dot { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+
+  /* ---------- tables ---------- */
+  .pa-table-wrap { overflow-x: auto; }
+  table.pa-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.pa-table th {
+    text-align: left;
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  table.pa-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  table.pa-table td.pa-num, table.pa-table th.pa-num { text-align: right; }
+  table.pa-table tr.pa-total-row td { font-weight: 700; color: var(--ink); background: var(--surface-2); }
+  table.pa-table tbody tr:hover td { background: var(--surface-2); }
+  .pa-name-cell { color: var(--ink); font-weight: 600; }
+
+  /* ---------- trend chart ---------- */
+  .pa-chart-box { position: relative; }
+  #paTrendSvg { width: 100%; height: 260px; display: block; overflow: visible; }
+  .pa-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    line-height: 1.45;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .08s;
+    z-index: 5;
+  }
+  .pa-tooltip b { font-family: 'IBM Plex Mono', Consolas, monospace; }
+  .pa-tooltip .pa-tt-title { font-family: 'Barlow Semi Condensed', sans-serif; text-transform: uppercase; letter-spacing: .04em; font-size: 10.5px; color: var(--muted); margin-bottom: 3px; }
+
+  /* ---------- driver bars ---------- */
+  .pa-driverbars { display: flex; flex-direction: column; gap: 7px; }
+  .pa-drow { display: grid; grid-template-columns: 150px 1fr 46px; align-items: center; gap: 10px; }
+  .pa-drow .pa-dname { font-size: 12.5px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pa-dbar-track { position: relative; height: 16px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .pa-dbar-seg { position: absolute; top: 0; height: 100%; }
+  .pa-dbar-seg.armadas { background: var(--good); left: 0; border-radius: 3px 0 0 3px; }
+  .pa-dbar-seg.noarmadas { background: var(--critical); border-radius: 0 3px 3px 0; }
+  .pa-drow .pa-dpct { font-size: 12px; text-align: right; color: var(--ink); font-weight: 600; }
+  .pa-drow:hover .pa-dname, .pa-drow:hover .pa-dpct { color: var(--accent-deep); }
+
+  /* ---------- donut ---------- */
+  .pa-donut-wrap { display: flex; align-items: center; justify-content: center; }
+  .pa-donut-center-val { font-size: 24px; font-weight: 700; fill: var(--ink); font-family: 'IBM Plex Mono', Consolas, monospace; }
+  .pa-donut-center-lbl { font-size: 9.5px; fill: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+
+  /* ---------- savings breakdown ---------- */
+  .pa-savings-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+  }
+  @media (max-width: 760px) {
+    .pa-savings-grid { grid-template-columns: 1fr; }
+    .pa-savings-op { transform: rotate(90deg); justify-self: center; }
+  }
+  .pa-savings-item {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 16px 18px;
+  }
+  .pa-savings-item-total { background: transparent; border-style: dashed; }
+  .pa-savings-label {
+    font-family: 'Barlow Semi Condensed', 'Bahnschrift', 'Arial Narrow', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .pa-savings-value { font-size: 24px; font-weight: 700; color: var(--ink); }
+  .pa-savings-formula { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+  .pa-savings-op { font-size: 20px; font-weight: 700; color: var(--muted); text-align: center; }
+  .pa-savings-grid-solo { grid-template-columns: none; max-width: 320px; }
+  .pa-savings-item-solo { padding: 20px 24px; }
+  .pa-savings-item-solo .pa-savings-value { font-size: 30px; }
+
+  /* ---------- callout / caveat ---------- */
+  .pa-callout {
+    display: flex;
+    gap: 10px;
+    background: var(--warn-soft);
+    border: 1px solid var(--warn);
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    margin-bottom: 18px;
+  }
+  .pa-callout .pa-callout-tag {
+    flex: none;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--warn);
+  }
+
+  /* ---------- motivos bars ---------- */
+  .pa-motivo-row { display: grid; grid-template-columns: 220px 1fr 34px; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .pa-motivo-row .pa-mlabel { font-size: 13px; color: var(--ink-2); }
+  .pa-motivo-track { height: 14px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .pa-motivo-fill { height: 100%; border-radius: 3px; }
+  .pa-motivo-row .pa-mcount { font-size: 12.5px; font-weight: 700; color: var(--ink); text-align: right; }
+
+  /* ---------- footer ---------- */
+  .pa-footer {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .pa-footer ul { margin: 6px 0 0; padding-left: 18px; }
+</style>
+</head>
+<body>
+
+<div class="pa-root">
+  <div class="pa-wrap">
+
+    <div class="pa-manifest pa-mono">Piloto transporte · 01 Jul – 10 Ago 2026</div>
+
+    <div class="pa-header-row">
+      <h1 class="pa-title">Armado en el Momento de Entrega</h1>
+      <span class="pa-chip pa-chip-warn">Borrador</span>
+    </div>
+    <p class="pa-subtitle">Seguimiento del piloto de armado de camas por parte del equipo de transporte al momento de la entrega domiciliaria en Barranquilla. Fuente: registro de viajes por conductor y placa, hoja <span class="pa-mono">TOTAL CAMAS</span> del archivo del piloto.</p>
+
+    <div class="pa-tabs" role="tablist">
+      <button type="button" class="pa-tab-btn is-active" data-tab="total" role="tab" aria-selected="true">Todo el piloto</button>
+      <button type="button" class="pa-tab-btn" data-tab="jul" role="tab" aria-selected="false">Julio</button>
+      <button type="button" class="pa-tab-btn" data-tab="ago" role="tab" aria-selected="false">Agosto</button>
+    </div>
+
+    <!-- ======================= TAB: TOTAL ======================= -->
+    <div class="pa-tabpanel" data-tabpanel="total">
+      <p class="pa-tab-range pa-mono">1 jul – 10 ago 2026 · 32 días con registro</p>
+
+      <div class="pa-kpis">
+        <div class="pa-kpi pa-kpi-hero">
+          <div class="pa-kpi-label">% Armado global</div>
+          <div class="pa-kpi-value pa-mono">43.1%</div>
+          <div class="pa-kpi-sub">138 de 320 camas</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Camas despachadas</div>
+          <div class="pa-kpi-value pa-mono">320</div>
+          <div class="pa-kpi-sub">en 174 viajes</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Armadas</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--good)">138</div>
+          <div class="pa-kpi-sub">en el momento de entrega</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">No armadas</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--critical)">182</div>
+          <div class="pa-kpi-sub">quedaron empacadas</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Camas promedio por viaje</div>
+          <div class="pa-kpi-value pa-mono">1.84</div>
+          <div class="pa-kpi-sub">320 camas / 174 viajes</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Ahorro generado</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--good)">$5.244.000</div>
+          <div class="pa-kpi-sub">138 camas × $38.000</div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Camas despachadas: armadas vs. no armadas</h2>
+        <p class="pa-section-note">Total acumulado del piloto, 1 de julio – 10 de agosto de 2026.</p>
+        <hr class="pa-hr" />
+        <div class="pa-grid-2">
+          <div class="pa-table-wrap">
+            <table class="pa-table">
+              <thead><tr><th>Estado</th><th class="pa-num">Camas</th><th class="pa-num">% del total</th></tr></thead>
+              <tbody>
+                <tr><td><span style="color:var(--good);font-weight:700;">●</span>&nbsp; Armadas</td><td class="pa-num pa-mono">138</td><td class="pa-num pa-mono">43.1%</td></tr>
+                <tr><td><span style="color:var(--critical);font-weight:700;">●</span>&nbsp; No armadas</td><td class="pa-num pa-mono">182</td><td class="pa-num pa-mono">56.9%</td></tr>
+                <tr class="pa-total-row"><td>Total</td><td class="pa-num pa-mono">320</td><td class="pa-num pa-mono">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pa-donut-wrap">
+            <svg id="paDonut-total" width="220" height="220" viewBox="0 0 220 220"></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Ahorro por armado en la entrega</h2>
+        <p class="pa-section-note">Comparado contra la tarifa promedio pagada a un especialista de armado ($38.000 por cama). Supone que el transportador no recibió pago adicional por armar — a validar con el equipo de campo.</p>
+        <hr class="pa-hr" />
+        <div class="pa-savings-grid pa-savings-grid-solo">
+          <div class="pa-savings-item pa-savings-item-solo">
+            <div class="pa-savings-label">Ahorro real generado</div>
+            <div class="pa-savings-value pa-mono" style="color:var(--good)">$5.244.000</div>
+            <div class="pa-savings-formula pa-mono">138 armadas × $38.000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Tendencia diaria de armado</h2>
+        <p class="pa-section-note">% de camas armadas sobre el total despachado cada día. Pase el cursor sobre la línea para ver el detalle del día.</p>
+        <hr class="pa-hr" />
+        <div class="pa-chart-box">
+          <svg id="paTrendSvg-total" viewBox="0 0 1100 260" preserveAspectRatio="none"></svg>
+          <div class="pa-tooltip" id="paTrendTooltip-total"></div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Desempeño por conductor</h2>
+        <p class="pa-section-note">Camas totales transportadas por conductor, divididas entre armadas y no armadas. En viajes con más de un conductor, las camas se cuentan para cada uno — por eso la suma por conductor supera el total de camas del piloto.</p>
+        <hr class="pa-hr" />
+        <div class="pa-legend">
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--good)"></span>Armadas</span>
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--critical)"></span>No armadas</span>
+        </div>
+        <div class="pa-driverbars" id="paDriverBars-total" style="margin-top:14px;"></div>
+
+        <div class="pa-table-wrap" style="margin-top:22px;">
+          <table class="pa-table" id="paDriverTable-total">
+            <thead><tr><th>Conductor</th><th class="pa-num">Viajes</th><th class="pa-num">Camas</th><th class="pa-num">Armadas</th><th class="pa-num">No armadas</th><th class="pa-num">% Armado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================= TAB: JULIO ======================= -->
+    <div class="pa-tabpanel" data-tabpanel="jul" hidden>
+      <p class="pa-tab-range pa-mono">1 – 31 de julio 2026 · 25 días con registro</p>
+
+      <div class="pa-kpis">
+        <div class="pa-kpi pa-kpi-hero">
+          <div class="pa-kpi-label">% Armado en julio</div>
+          <div class="pa-kpi-value pa-mono">42.6%</div>
+          <div class="pa-kpi-sub">121 de 284 camas</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Camas despachadas</div>
+          <div class="pa-kpi-value pa-mono">284</div>
+          <div class="pa-kpi-sub">en 150 viajes</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Armadas</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--good)">121</div>
+          <div class="pa-kpi-sub">en el momento de entrega</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">No armadas</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--critical)">163</div>
+          <div class="pa-kpi-sub">quedaron empacadas</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Camas promedio por viaje</div>
+          <div class="pa-kpi-value pa-mono">1.89</div>
+          <div class="pa-kpi-sub">284 camas / 150 viajes</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Ahorro generado</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--good)">$4.598.000</div>
+          <div class="pa-kpi-sub">121 camas × $38.000</div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Camas despachadas: armadas vs. no armadas</h2>
+        <p class="pa-section-note">Julio de 2026 (25 días con registro).</p>
+        <hr class="pa-hr" />
+        <div class="pa-grid-2">
+          <div class="pa-table-wrap">
+            <table class="pa-table">
+              <thead><tr><th>Estado</th><th class="pa-num">Camas</th><th class="pa-num">% del total</th></tr></thead>
+              <tbody>
+                <tr><td><span style="color:var(--good);font-weight:700;">●</span>&nbsp; Armadas</td><td class="pa-num pa-mono">121</td><td class="pa-num pa-mono">42.6%</td></tr>
+                <tr><td><span style="color:var(--critical);font-weight:700;">●</span>&nbsp; No armadas</td><td class="pa-num pa-mono">163</td><td class="pa-num pa-mono">57.4%</td></tr>
+                <tr class="pa-total-row"><td>Total</td><td class="pa-num pa-mono">284</td><td class="pa-num pa-mono">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pa-donut-wrap">
+            <svg id="paDonut-jul" width="220" height="220" viewBox="0 0 220 220"></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Ahorro por armado en la entrega</h2>
+        <p class="pa-section-note">Comparado contra la tarifa promedio pagada a un especialista de armado ($38.000 por cama).</p>
+        <hr class="pa-hr" />
+        <div class="pa-savings-grid pa-savings-grid-solo">
+          <div class="pa-savings-item pa-savings-item-solo">
+            <div class="pa-savings-label">Ahorro real generado en julio</div>
+            <div class="pa-savings-value pa-mono" style="color:var(--good)">$4.598.000</div>
+            <div class="pa-savings-formula pa-mono">121 armadas × $38.000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Tendencia diaria de armado — julio</h2>
+        <p class="pa-section-note">% de camas armadas sobre el total despachado cada día. Pase el cursor sobre la línea para ver el detalle del día.</p>
+        <hr class="pa-hr" />
+        <div class="pa-chart-box">
+          <svg id="paTrendSvg-jul" viewBox="0 0 1100 260" preserveAspectRatio="none"></svg>
+          <div class="pa-tooltip" id="paTrendTooltip-jul"></div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Desempeño por conductor — julio</h2>
+        <p class="pa-section-note">Camas totales transportadas por conductor en julio, divididas entre armadas y no armadas. En viajes con más de un conductor, las camas se cuentan para cada uno.</p>
+        <hr class="pa-hr" />
+        <div class="pa-legend">
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--good)"></span>Armadas</span>
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--critical)"></span>No armadas</span>
+        </div>
+        <div class="pa-driverbars" id="paDriverBars-jul" style="margin-top:14px;"></div>
+
+        <div class="pa-table-wrap" style="margin-top:22px;">
+          <table class="pa-table" id="paDriverTable-jul">
+            <thead><tr><th>Conductor</th><th class="pa-num">Viajes</th><th class="pa-num">Camas</th><th class="pa-num">Armadas</th><th class="pa-num">No armadas</th><th class="pa-num">% Armado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================= TAB: AGOSTO ======================= -->
+    <div class="pa-tabpanel" data-tabpanel="ago" hidden>
+      <p class="pa-tab-range pa-mono">1 – 10 de agosto 2026 · 7 días con registro</p>
+      <div class="pa-callout">
+        <span class="pa-callout-tag">Mes parcial</span>
+        <span>Agosto solo tiene registro hasta el 10 — son 7 días contra los 25 de julio. Las cifras de agosto no son comparables 1 a 1 con las de julio todavía; se muestran para seguimiento, no como tendencia confirmada.</span>
+      </div>
+
+      <div class="pa-kpis">
+        <div class="pa-kpi pa-kpi-hero">
+          <div class="pa-kpi-label">% Armado en agosto</div>
+          <div class="pa-kpi-value pa-mono">47.2%</div>
+          <div class="pa-kpi-sub">17 de 36 camas</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Camas despachadas</div>
+          <div class="pa-kpi-value pa-mono">36</div>
+          <div class="pa-kpi-sub">en 24 viajes</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Armadas</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--good)">17</div>
+          <div class="pa-kpi-sub">en el momento de entrega</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">No armadas</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--critical)">19</div>
+          <div class="pa-kpi-sub">quedaron empacadas</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Camas promedio por viaje</div>
+          <div class="pa-kpi-value pa-mono">1.50</div>
+          <div class="pa-kpi-sub">36 camas / 24 viajes</div>
+        </div>
+        <div class="pa-kpi">
+          <div class="pa-kpi-label">Ahorro generado</div>
+          <div class="pa-kpi-value pa-mono" style="color:var(--good)">$646.000</div>
+          <div class="pa-kpi-sub">17 camas × $38.000</div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Camas despachadas: armadas vs. no armadas</h2>
+        <p class="pa-section-note">Agosto de 2026, 1 al 10 (7 días con registro).</p>
+        <hr class="pa-hr" />
+        <div class="pa-grid-2">
+          <div class="pa-table-wrap">
+            <table class="pa-table">
+              <thead><tr><th>Estado</th><th class="pa-num">Camas</th><th class="pa-num">% del total</th></tr></thead>
+              <tbody>
+                <tr><td><span style="color:var(--good);font-weight:700;">●</span>&nbsp; Armadas</td><td class="pa-num pa-mono">17</td><td class="pa-num pa-mono">47.2%</td></tr>
+                <tr><td><span style="color:var(--critical);font-weight:700;">●</span>&nbsp; No armadas</td><td class="pa-num pa-mono">19</td><td class="pa-num pa-mono">52.8%</td></tr>
+                <tr class="pa-total-row"><td>Total</td><td class="pa-num pa-mono">36</td><td class="pa-num pa-mono">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pa-donut-wrap">
+            <svg id="paDonut-ago" width="220" height="220" viewBox="0 0 220 220"></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Ahorro por armado en la entrega</h2>
+        <p class="pa-section-note">Comparado contra la tarifa promedio pagada a un especialista de armado ($38.000 por cama).</p>
+        <hr class="pa-hr" />
+        <div class="pa-savings-grid pa-savings-grid-solo">
+          <div class="pa-savings-item pa-savings-item-solo">
+            <div class="pa-savings-label">Ahorro real generado en agosto</div>
+            <div class="pa-savings-value pa-mono" style="color:var(--good)">$646.000</div>
+            <div class="pa-savings-formula pa-mono">17 armadas × $38.000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Tendencia diaria de armado — agosto</h2>
+        <p class="pa-section-note">% de camas armadas sobre el total despachado cada día. Pase el cursor sobre la línea para ver el detalle del día.</p>
+        <hr class="pa-hr" />
+        <div class="pa-chart-box">
+          <svg id="paTrendSvg-ago" viewBox="0 0 1100 260" preserveAspectRatio="none"></svg>
+          <div class="pa-tooltip" id="paTrendTooltip-ago"></div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Desempeño por conductor — agosto</h2>
+        <p class="pa-section-note">Camas totales transportadas por conductor en agosto, divididas entre armadas y no armadas. Muestra chica (7 días) — leer con cautela.</p>
+        <hr class="pa-hr" />
+        <div class="pa-legend">
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--good)"></span>Armadas</span>
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--critical)"></span>No armadas</span>
+        </div>
+        <div class="pa-driverbars" id="paDriverBars-ago" style="margin-top:14px;"></div>
+
+        <div class="pa-table-wrap" style="margin-top:22px;">
+          <table class="pa-table" id="paDriverTable-ago">
+            <thead><tr><th>Conductor</th><th class="pa-num">Viajes</th><th class="pa-num">Camas</th><th class="pa-num">Armadas</th><th class="pa-num">No armadas</th><th class="pa-num">% Armado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Armado de comedores — piloto ampliado</h2>
+        <div class="pa-callout">
+          <span class="pa-callout-tag">Muestra muy limitada</span>
+          <span>Desde el 6 de agosto de 2026 el archivo empezó a registrar también el armado de comedores en la entrega, en la misma hoja de trabajo. Solo hay 3 días de datos (6, 8 y 10 de agosto) — insuficiente para sacar conclusiones, pero se deja el avance a la vista.</span>
+        </div>
+        <div class="pa-kpis" style="margin-bottom:0;">
+          <div class="pa-kpi">
+            <div class="pa-kpi-label">Comedores despachados</div>
+            <div class="pa-kpi-value pa-mono">6</div>
+            <div class="pa-kpi-sub">en 5 viajes, 3 días</div>
+          </div>
+          <div class="pa-kpi">
+            <div class="pa-kpi-label">Armados</div>
+            <div class="pa-kpi-value pa-mono" style="color:var(--good)">5</div>
+            <div class="pa-kpi-sub">en el momento de entrega</div>
+          </div>
+          <div class="pa-kpi">
+            <div class="pa-kpi-label">% Armado (muestra)</div>
+            <div class="pa-kpi-value pa-mono">83.3%</div>
+            <div class="pa-kpi-sub">5 de 6 comedores</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Comedores despachados: armados vs. no armados</h2>
+        <p class="pa-section-note">Muestra muy chica (6 comedores, 3 días) — referencial, no concluyente.</p>
+        <hr class="pa-hr" />
+        <div class="pa-grid-2">
+          <div class="pa-table-wrap">
+            <table class="pa-table">
+              <thead><tr><th>Estado</th><th class="pa-num">Comedores</th><th class="pa-num">% del total</th></tr></thead>
+              <tbody>
+                <tr><td><span style="color:var(--good);font-weight:700;">●</span>&nbsp; Armados</td><td class="pa-num pa-mono">5</td><td class="pa-num pa-mono">83.3%</td></tr>
+                <tr><td><span style="color:var(--critical);font-weight:700;">●</span>&nbsp; No armados</td><td class="pa-num pa-mono">1</td><td class="pa-num pa-mono">16.7%</td></tr>
+                <tr class="pa-total-row"><td>Total</td><td class="pa-num pa-mono">6</td><td class="pa-num pa-mono">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pa-donut-wrap">
+            <svg id="paDonut-comedores" width="220" height="220" viewBox="0 0 220 220"></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Tendencia diaria de armado — comedores</h2>
+        <p class="pa-section-note">% de comedores armados sobre el total despachado cada día. Solo 3 días con registro (6, 8 y 10 de agosto).</p>
+        <hr class="pa-hr" />
+        <div class="pa-chart-box">
+          <svg id="paTrendSvg-comedores" viewBox="0 0 1100 260" preserveAspectRatio="none"></svg>
+          <div class="pa-tooltip" id="paTrendTooltip-comedores"></div>
+        </div>
+      </div>
+
+      <div class="pa-section">
+        <h2>Desempeño por conductor — comedores</h2>
+        <p class="pa-section-note">Comedores totales transportados por conductor, divididos entre armados y no armados. Muestra muy chica (5 conductores, 3 días) — leer con cautela.</p>
+        <hr class="pa-hr" />
+        <div class="pa-legend">
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--good)"></span>Armados</span>
+          <span class="pa-legend-item"><span class="pa-legend-dot" style="background:var(--critical)"></span>No armados</span>
+        </div>
+        <div class="pa-driverbars" id="paDriverBars-comedores" style="margin-top:14px;"></div>
+
+        <div class="pa-table-wrap" style="margin-top:22px;">
+          <table class="pa-table" id="paDriverTable-comedores">
+            <thead><tr><th>Conductor</th><th class="pa-num">Viajes</th><th class="pa-num">Comedores</th><th class="pa-num">Armados</th><th class="pa-num">No armados</th><th class="pa-num">% Armado</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="pa-footer">
+      Fuente: <span class="pa-mono">PILOTO MIX DE ARMADO 2026.xlsx</span> — hoja <span class="pa-mono">TOTAL CAMAS</span> (viajes por conductor/placa, 1 jul – 10 ago 2026) y hoja <span class="pa-mono">TOTAL COMEDORES</span> (piloto ampliado desde el 6 de agosto).
+      <ul>
+        <li>Nombres de conductores normalizados: se unificaron variantes por tildes, mayúsculas y errores de digitación (ej. "Frankllin"/"Franklin", "Jhon Marin"/"Jhon Marín", "Alexander"/"Alex De La Cruz", "Jose"/"José Barrera", "Deivis de la Cruz"/"Deivis De La Cruz", "Breidis S"/"Breidis Sanchez").</li>
+        <li>Las hojas de detalle por cliente con observaciones de motivo de no armado (que existían en versiones anteriores del archivo) ya no están presentes en esta versión — por eso el informe ya no incluye la sección de "motivos de no armado".</li>
+        <li>Documento de trabajo para revisión interna — no es un reporte final.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var DATA = {
+    total: {
+      camas: 320, armadas: 138, pctLabel: "43.1%",
+      labels: ["1 Jul", "2 Jul", "3 Jul", "4 Jul", "6 Jul", "7 Jul", "8 Jul", "9 Jul", "10 Jul", "11 Jul", "14 Jul", "15 Jul", "16 Jul", "17 Jul", "18 Jul", "21 Jul", "22 Jul", "23 Jul", "24 Jul", "25 Jul", "27 Jul", "28 Jul", "29 Jul", "30 Jul", "31 Jul", "1 Ago", "3 Ago", "4 Ago", "5 Ago", "6 Ago", "8 Ago", "10 Ago"],
+      total: [28, 10, 19, 12, 20, 10, 4, 7, 9, 11, 8, 22, 11, 11, 7, 7, 14, 10, 9, 6, 16, 10, 8, 4, 11, 4, 4, 6, 5, 6, 4, 7],
+      dayArmadas: [8, 2, 5, 3, 8, 4, 1, 3, 6, 6, 3, 12, 5, 5, 3, 3, 9, 5, 7, 1, 8, 5, 2, 1, 6, 2, 1, 3, 2, 3, 2, 4],
+      dayNoarmadas: [20, 8, 14, 9, 12, 6, 3, 4, 3, 5, 5, 10, 6, 6, 4, 4, 5, 5, 2, 5, 8, 5, 6, 3, 5, 2, 3, 3, 3, 3, 2, 3],
+      pct: [28.6, 20.0, 26.3, 25.0, 40.0, 40.0, 25.0, 42.9, 66.7, 54.5, 37.5, 54.5, 45.5, 45.5, 42.9, 42.9, 64.3, 50.0, 77.8, 16.7, 50.0, 50.0, 25.0, 25.0, 54.5, 50.0, 25.0, 50.0, 40.0, 50.0, 50.0, 57.1],
+      drivers: [
+        {name:"Abad Medina", viajes:10, total:26, armadas:8, noarmadas:18, pct:30.8},
+        {name:"Mario Silvera", viajes:11, total:25, armadas:9, noarmadas:16, pct:36.0},
+        {name:"Alex De La Cruz", viajes:12, total:25, armadas:15, noarmadas:10, pct:60.0},
+        {name:"Juan Carlos Rodriguez", viajes:9, total:24, armadas:14, noarmadas:10, pct:58.3},
+        {name:"Carlos Torres", viajes:11, total:20, armadas:11, noarmadas:9, pct:55.0},
+        {name:"Deivis De La Cruz", viajes:10, total:20, armadas:10, noarmadas:10, pct:50.0},
+        {name:"Elver Rodriguez", viajes:9, total:20, armadas:14, noarmadas:6, pct:70.0},
+        {name:"Jhon Marín", viajes:8, total:19, armadas:9, noarmadas:10, pct:47.4},
+        {name:"Fernando Cantillo", viajes:10, total:19, armadas:5, noarmadas:14, pct:26.3},
+        {name:"Francisco Meza", viajes:10, total:19, armadas:6, noarmadas:13, pct:31.6},
+        {name:"Zair Rodriguez", viajes:11, total:16, armadas:2, noarmadas:14, pct:12.5},
+        {name:"Jerson Aleman", viajes:8, total:16, armadas:8, noarmadas:8, pct:50.0},
+        {name:"Abel Rada", viajes:10, total:16, armadas:3, noarmadas:13, pct:18.8},
+        {name:"Alex Bru", viajes:11, total:14, armadas:7, noarmadas:7, pct:50.0},
+        {name:"José Barrera", viajes:9, total:12, armadas:6, noarmadas:6, pct:50.0},
+        {name:"Jonathan De La Hoz", viajes:6, total:9, armadas:5, noarmadas:4, pct:55.6},
+        {name:"Breidis Sanchez", viajes:3, total:8, armadas:5, noarmadas:3, pct:62.5},
+        {name:"Franklin Padilla", viajes:7, total:7, armadas:1, noarmadas:6, pct:14.3},
+        {name:"Juan Meza", viajes:6, total:7, armadas:1, noarmadas:6, pct:14.3},
+        {name:"José Luis R.", viajes:2, total:5, armadas:3, noarmadas:2, pct:60.0},
+        {name:"Jesús M.", viajes:2, total:5, armadas:3, noarmadas:2, pct:60.0},
+        {name:"Yamid Roncallo", viajes:3, total:4, armadas:3, noarmadas:1, pct:75.0},
+        {name:"Jeison Duran", viajes:1, total:3, armadas:0, noarmadas:3, pct:0.0},
+        {name:"Javier Narvaez", viajes:1, total:3, armadas:1, noarmadas:2, pct:33.3},
+        {name:"Jonathan", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Teodoro Z.", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Josimar M.", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Jhon Guerrero", viajes:2, total:1, armadas:1, noarmadas:0, pct:100.0},
+        {name:"Juan Rodriguez", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0}
+      ]
+    },
+    jul: {
+      camas: 284, armadas: 121, pctLabel: "42.6%",
+      labels: ["1 Jul", "2 Jul", "3 Jul", "4 Jul", "6 Jul", "7 Jul", "8 Jul", "9 Jul", "10 Jul", "11 Jul", "14 Jul", "15 Jul", "16 Jul", "17 Jul", "18 Jul", "21 Jul", "22 Jul", "23 Jul", "24 Jul", "25 Jul", "27 Jul", "28 Jul", "29 Jul", "30 Jul", "31 Jul"],
+      total: [28, 10, 19, 12, 20, 10, 4, 7, 9, 11, 8, 22, 11, 11, 7, 7, 14, 10, 9, 6, 16, 10, 8, 4, 11],
+      dayArmadas: [8, 2, 5, 3, 8, 4, 1, 3, 6, 6, 3, 12, 5, 5, 3, 3, 9, 5, 7, 1, 8, 5, 2, 1, 6],
+      dayNoarmadas: [20, 8, 14, 9, 12, 6, 3, 4, 3, 5, 5, 10, 6, 6, 4, 4, 5, 5, 2, 5, 8, 5, 6, 3, 5],
+      pct: [28.6, 20.0, 26.3, 25.0, 40.0, 40.0, 25.0, 42.9, 66.7, 54.5, 37.5, 54.5, 45.5, 45.5, 42.9, 42.9, 64.3, 50.0, 77.8, 16.7, 50.0, 50.0, 25.0, 25.0, 54.5],
+      drivers: [
+        {name:"Abad Medina", viajes:10, total:26, armadas:8, noarmadas:18, pct:30.8},
+        {name:"Juan Carlos Rodriguez", viajes:8, total:23, armadas:14, noarmadas:9, pct:60.9},
+        {name:"Alex De La Cruz", viajes:10, total:21, armadas:11, noarmadas:10, pct:52.4},
+        {name:"Deivis De La Cruz", viajes:10, total:20, armadas:10, noarmadas:10, pct:50.0},
+        {name:"Jhon Marín", viajes:8, total:19, armadas:9, noarmadas:10, pct:47.4},
+        {name:"Carlos Torres", viajes:9, total:18, armadas:10, noarmadas:8, pct:55.6},
+        {name:"Mario Silvera", viajes:7, total:18, armadas:6, noarmadas:12, pct:33.3},
+        {name:"Fernando Cantillo", viajes:8, total:16, armadas:4, noarmadas:12, pct:25.0},
+        {name:"Abel Rada", viajes:10, total:16, armadas:3, noarmadas:13, pct:18.8},
+        {name:"Jerson Aleman", viajes:7, total:15, armadas:7, noarmadas:8, pct:46.7},
+        {name:"Francisco Meza", viajes:8, total:15, armadas:3, noarmadas:12, pct:20.0},
+        {name:"Elver Rodriguez", viajes:6, total:14, armadas:11, noarmadas:3, pct:78.6},
+        {name:"Zair Rodriguez", viajes:8, total:13, armadas:2, noarmadas:11, pct:15.4},
+        {name:"Alex Bru", viajes:9, total:12, armadas:6, noarmadas:6, pct:50.0},
+        {name:"José Barrera", viajes:8, total:11, armadas:6, noarmadas:5, pct:54.5},
+        {name:"Jonathan De La Hoz", viajes:6, total:9, armadas:5, noarmadas:4, pct:55.6},
+        {name:"Breidis Sanchez", viajes:3, total:8, armadas:5, noarmadas:3, pct:62.5},
+        {name:"Franklin Padilla", viajes:7, total:7, armadas:1, noarmadas:6, pct:14.3},
+        {name:"José Luis R.", viajes:2, total:5, armadas:3, noarmadas:2, pct:60.0},
+        {name:"Jesús M.", viajes:2, total:5, armadas:3, noarmadas:2, pct:60.0},
+        {name:"Juan Meza", viajes:5, total:5, armadas:1, noarmadas:4, pct:20.0},
+        {name:"Yamid Roncallo", viajes:3, total:4, armadas:3, noarmadas:1, pct:75.0},
+        {name:"Jeison Duran", viajes:1, total:3, armadas:0, noarmadas:3, pct:0.0},
+        {name:"Javier Narvaez", viajes:1, total:3, armadas:1, noarmadas:2, pct:33.3},
+        {name:"Jonathan", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Teodoro Z.", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Josimar M.", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Jhon Guerrero", viajes:2, total:1, armadas:1, noarmadas:0, pct:100.0},
+        {name:"Juan Rodriguez", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0}
+      ]
+    },
+    ago: {
+      camas: 36, armadas: 17, pctLabel: "47.2%",
+      labels: ["1 Ago", "3 Ago", "4 Ago", "5 Ago", "6 Ago", "8 Ago", "10 Ago"],
+      total: [4, 4, 6, 5, 6, 4, 7],
+      dayArmadas: [2, 1, 3, 2, 3, 2, 4],
+      dayNoarmadas: [2, 3, 3, 3, 3, 2, 3],
+      pct: [50.0, 25.0, 50.0, 40.0, 50.0, 50.0, 57.1],
+      drivers: [
+        {name:"Mario Silvera", viajes:4, total:7, armadas:3, noarmadas:4, pct:42.9},
+        {name:"Elver Rodriguez", viajes:3, total:6, armadas:3, noarmadas:3, pct:50.0},
+        {name:"Alex De La Cruz", viajes:2, total:4, armadas:4, noarmadas:0, pct:100.0},
+        {name:"Francisco Meza", viajes:2, total:4, armadas:3, noarmadas:1, pct:75.0},
+        {name:"Zair Rodriguez", viajes:3, total:3, armadas:0, noarmadas:3, pct:0.0},
+        {name:"Fernando Cantillo", viajes:2, total:3, armadas:1, noarmadas:2, pct:33.3},
+        {name:"Alex Bru", viajes:2, total:2, armadas:1, noarmadas:1, pct:50.0},
+        {name:"Carlos Torres", viajes:2, total:2, armadas:1, noarmadas:1, pct:50.0},
+        {name:"Juan Meza", viajes:1, total:2, armadas:0, noarmadas:2, pct:0.0},
+        {name:"Juan Carlos Rodriguez", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"José Barrera", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0},
+        {name:"Jerson Aleman", viajes:1, total:1, armadas:1, noarmadas:0, pct:100.0}
+      ]
+    },
+    comedores: {
+      camas: 6, armadas: 5, pctLabel: "83.3%",
+      labels: ["6 Ago", "8 Ago", "10 Ago"],
+      total: [2, 3, 1],
+      dayArmadas: [1, 3, 1],
+      dayNoarmadas: [1, 0, 0],
+      pct: [50.0, 100.0, 100.0],
+      drivers: [
+        {name:"Abel Rada", viajes:1, total:2, armadas:2, noarmadas:0, pct:100.0},
+        {name:"Carlos Torres", viajes:1, total:1, armadas:1, noarmadas:0, pct:100.0},
+        {name:"Yamid Roncallo", viajes:1, total:1, armadas:1, noarmadas:0, pct:100.0},
+        {name:"Alex Bru", viajes:1, total:1, armadas:1, noarmadas:0, pct:100.0},
+        {name:"Fernando Cantillo", viajes:1, total:1, armadas:0, noarmadas:1, pct:0.0}
+      ]
+    }
+  };
+
+  var root = document.querySelector('.pa-root');
+  function cssVar(name) { return getComputedStyle(root).getPropertyValue(name).trim(); }
+
+  /* ---------- tabs ---------- */
+  function initTabs() {
+    var btns = document.querySelectorAll('.pa-tab-btn');
+    var panels = document.querySelectorAll('.pa-tabpanel');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-tab');
+        btns.forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          p.hidden = (p.getAttribute('data-tabpanel') !== key);
+        });
+      });
+    });
+  }
+
+  /* ---------- donut ---------- */
+  function drawDonut(suffix, total, armadas, pctLabel) {
+    var svg = document.getElementById('paDonut-' + suffix);
+    var cx = 110, cy = 110, r = 78, sw = 26;
+    var circumference = 2 * Math.PI * r;
+    var armLen = circumference * (armadas / total);
+    var ns = "http://www.w3.org/2000/svg";
+
+    var bg = document.createElementNS(ns, "circle");
+    bg.setAttribute("cx", cx); bg.setAttribute("cy", cy); bg.setAttribute("r", r);
+    bg.setAttribute("fill", "none");
+    bg.setAttribute("stroke", cssVar('--critical'));
+    bg.setAttribute("stroke-width", sw);
+    svg.appendChild(bg);
+
+    var fg = document.createElementNS(ns, "circle");
+    fg.setAttribute("cx", cx); fg.setAttribute("cy", cy); fg.setAttribute("r", r);
+    fg.setAttribute("fill", "none");
+    fg.setAttribute("stroke", cssVar('--good'));
+    fg.setAttribute("stroke-width", sw);
+    fg.setAttribute("stroke-dasharray", armLen + " " + (circumference - armLen));
+    fg.setAttribute("stroke-linecap", "butt");
+    fg.setAttribute("transform", "rotate(-90 " + cx + " " + cy + ")");
+    svg.appendChild(fg);
+
+    var val = document.createElementNS(ns, "text");
+    val.setAttribute("x", cx); val.setAttribute("y", cy - 4);
+    val.setAttribute("text-anchor", "middle");
+    val.setAttribute("class", "pa-donut-center-val");
+    val.textContent = pctLabel;
+    svg.appendChild(val);
+
+    var lbl = document.createElementNS(ns, "text");
+    lbl.setAttribute("x", cx); lbl.setAttribute("y", cy + 16);
+    lbl.setAttribute("text-anchor", "middle");
+    lbl.setAttribute("class", "pa-donut-center-lbl");
+    lbl.textContent = "ARMADO";
+    svg.appendChild(lbl);
+  }
+
+  /* ---------- trend line chart ---------- */
+  function drawTrend(suffix, d) {
+    var svg = document.getElementById('paTrendSvg-' + suffix);
+    var tooltip = document.getElementById('paTrendTooltip-' + suffix);
+    var DAY_LABELS = d.labels, DAY_TOTAL = d.total, DAY_ARMADAS = d.dayArmadas, DAY_NOARMADAS = d.dayNoarmadas, DAY_PCT = d.pct;
+    var ns = "http://www.w3.org/2000/svg";
+    var W = 1100, H = 260, padL = 34, padR = 10, padT = 16, padB = 30;
+    var innerW = W - padL - padR, innerH = H - padT - padB;
+    var n = DAY_PCT.length;
+
+    function xAt(i) { return n > 1 ? padL + (innerW * i) / (n - 1) : padL; }
+    function yAt(v) { return padT + innerH - (innerH * v) / 100; }
+
+    // gridlines
+    [0, 25, 50, 75, 100].forEach(function (v) {
+      var y = yAt(v);
+      var line = document.createElementNS(ns, "line");
+      line.setAttribute("x1", padL); line.setAttribute("x2", W - padR);
+      line.setAttribute("y1", y); line.setAttribute("y2", y);
+      line.setAttribute("stroke", cssVar('--line'));
+      line.setAttribute("stroke-width", 1);
+      svg.appendChild(line);
+      var t = document.createElementNS(ns, "text");
+      t.setAttribute("x", 4); t.setAttribute("y", y + 3);
+      t.setAttribute("font-size", "10.5"); t.setAttribute("fill", cssVar('--muted'));
+      t.setAttribute("font-family", "IBM Plex Mono, Consolas, monospace");
+      t.textContent = v + "%";
+      svg.appendChild(t);
+    });
+
+    // x labels (every 3rd to avoid crowding)
+    DAY_LABELS.forEach(function (lab, i) {
+      if (i % 3 !== 0 && i !== n - 1) return;
+      var t = document.createElementNS(ns, "text");
+      t.setAttribute("x", xAt(i)); t.setAttribute("y", H - 8);
+      t.setAttribute("font-size", "10"); t.setAttribute("fill", cssVar('--muted'));
+      t.setAttribute("text-anchor", "middle");
+      t.setAttribute("font-family", "IBM Plex Mono, Consolas, monospace");
+      t.textContent = lab;
+      svg.appendChild(t);
+    });
+
+    // area path
+    var areaD = "M " + xAt(0) + " " + yAt(0);
+    for (var i = 0; i < n; i++) areaD += " L " + xAt(i) + " " + yAt(DAY_PCT[i]);
+    areaD += " L " + xAt(n - 1) + " " + yAt(0) + " Z";
+    var area = document.createElementNS(ns, "path");
+    area.setAttribute("d", areaD);
+    area.setAttribute("fill", cssVar('--accent'));
+    area.setAttribute("opacity", "0.10");
+    svg.appendChild(area);
+
+    // line path
+    var lineD = "M " + xAt(0) + " " + yAt(DAY_PCT[0]);
+    for (var i = 1; i < n; i++) lineD += " L " + xAt(i) + " " + yAt(DAY_PCT[i]);
+    var linePath = document.createElementNS(ns, "path");
+    linePath.setAttribute("d", lineD);
+    linePath.setAttribute("fill", "none");
+    linePath.setAttribute("stroke", cssVar('--accent'));
+    linePath.setAttribute("stroke-width", "2");
+    linePath.setAttribute("stroke-linejoin", "round");
+    linePath.setAttribute("stroke-linecap", "round");
+    svg.appendChild(linePath);
+
+    // endpoint emphasis
+    var endCircle = document.createElementNS(ns, "circle");
+    endCircle.setAttribute("cx", xAt(n - 1)); endCircle.setAttribute("cy", yAt(DAY_PCT[n - 1]));
+    endCircle.setAttribute("r", 4.5);
+    endCircle.setAttribute("fill", cssVar('--accent'));
+    svg.appendChild(endCircle);
+
+    // crosshair group
+    var chLine = document.createElementNS(ns, "line");
+    chLine.setAttribute("y1", padT); chLine.setAttribute("y2", H - padB);
+    chLine.setAttribute("stroke", cssVar('--muted'));
+    chLine.setAttribute("stroke-width", 1);
+    chLine.setAttribute("stroke-dasharray", "3 3");
+    chLine.setAttribute("opacity", "0");
+    svg.appendChild(chLine);
+
+    var chDot = document.createElementNS(ns, "circle");
+    chDot.setAttribute("r", 5);
+    chDot.setAttribute("fill", cssVar('--accent-deep'));
+    chDot.setAttribute("stroke", cssVar('--surface'));
+    chDot.setAttribute("stroke-width", "2");
+    chDot.setAttribute("opacity", "0");
+    svg.appendChild(chDot);
+
+    // hover capture
+    var hoverRect = document.createElementNS(ns, "rect");
+    hoverRect.setAttribute("x", padL); hoverRect.setAttribute("y", padT);
+    hoverRect.setAttribute("width", innerW); hoverRect.setAttribute("height", innerH);
+    hoverRect.setAttribute("fill", "transparent");
+    svg.appendChild(hoverRect);
+
+    function showAt(i) {
+      var x = xAt(i), y = yAt(DAY_PCT[i]);
+      chLine.setAttribute("x1", x); chLine.setAttribute("x2", x);
+      chLine.setAttribute("opacity", "1");
+      chDot.setAttribute("cx", x); chDot.setAttribute("cy", y);
+      chDot.setAttribute("opacity", "1");
+
+      var pxPct = x / W * 100, pyPct = y / H * 100;
+      tooltip.style.left = pxPct + "%";
+      tooltip.style.top = pyPct + "%";
+      tooltip.innerHTML = '<div class="pa-tt-title">' + DAY_LABELS[i] + '</div>' +
+        '<b>' + DAY_PCT[i].toFixed(1) + '%</b> armado<br>' +
+        DAY_ARMADAS[i] + ' armadas · ' + DAY_NOARMADAS[i] + ' no armadas<br>' +
+        DAY_TOTAL[i] + ' camas totales';
+      tooltip.style.opacity = "1";
+    }
+    function hide() {
+      chLine.setAttribute("opacity", "0");
+      chDot.setAttribute("opacity", "0");
+      tooltip.style.opacity = "0";
+    }
+
+    hoverRect.addEventListener('mousemove', function (e) {
+      var rect = svg.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width * W;
+      var i = Math.round(((relX - padL) / innerW) * (n - 1));
+      i = Math.max(0, Math.min(n - 1, i));
+      showAt(i);
+    });
+    hoverRect.addEventListener('mouseleave', hide);
+  }
+
+  /* ---------- driver bars ---------- */
+  function drawDriverBars(suffix, DRIVERS) {
+    var wrap = document.getElementById('paDriverBars-' + suffix);
+    var tbody = document.querySelector('#paDriverTable-' + suffix + ' tbody');
+    var maxTotal = Math.max.apply(null, DRIVERS.map(function (d) { return d.total; }));
+
+    DRIVERS.forEach(function (d) {
+      var row = document.createElement('div');
+      row.className = 'pa-drow';
+
+      var name = document.createElement('div');
+      name.className = 'pa-dname';
+      name.textContent = d.name;
+      name.title = d.name + ' — ' + d.viajes + ' viajes';
+
+      var track = document.createElement('div');
+      track.className = 'pa-dbar-track';
+      track.style.width = '100%';
+
+      var scale = maxTotal > 0 ? (d.total / maxTotal) : 0;
+      var armWidthPct = d.total > 0 ? (d.armadas / d.total) * scale * 100 : 0;
+      var noArmWidthPct = d.total > 0 ? (d.noarmadas / d.total) * scale * 100 : 0;
+      var gapPx = (d.armadas > 0 && d.noarmadas > 0) ? 2 : 0;
+
+      var segA = document.createElement('div');
+      segA.className = 'pa-dbar-seg armadas';
+      segA.style.width = 'calc(' + armWidthPct + '% - ' + (gapPx / 2) + 'px)';
+      segA.title = d.armadas + ' armadas';
+
+      var segN = document.createElement('div');
+      segN.className = 'pa-dbar-seg noarmadas';
+      segN.style.left = 'calc(' + armWidthPct + '% + ' + (gapPx / 2) + 'px)';
+      segN.style.width = 'calc(' + noArmWidthPct + '% - ' + (gapPx / 2) + 'px)';
+      segN.title = d.noarmadas + ' no armadas';
+
+      track.appendChild(segA);
+      track.appendChild(segN);
+
+      var pct = document.createElement('div');
+      pct.className = 'pa-dpct pa-mono';
+      pct.textContent = d.pct.toFixed(0) + '%';
+
+      row.appendChild(name);
+      row.appendChild(track);
+      row.appendChild(pct);
+      row.title = d.name + ': ' + d.armadas + ' armadas, ' + d.noarmadas + ' no armadas de ' + d.total + ' camas (' + d.viajes + ' viajes)';
+      wrap.appendChild(row);
+
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td class="pa-name-cell">' + d.name + '</td>' +
+        '<td class="pa-num pa-mono">' + d.viajes + '</td>' +
+        '<td class="pa-num pa-mono">' + d.total + '</td>' +
+        '<td class="pa-num pa-mono">' + d.armadas + '</td>' +
+        '<td class="pa-num pa-mono">' + d.noarmadas + '</td>' +
+        '<td class="pa-num pa-mono">' + d.pct.toFixed(1) + '%</td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  ['total', 'jul', 'ago', 'comedores'].forEach(function (key) {
+    var d = DATA[key];
+    drawDonut(key, d.camas, d.armadas, d.pctLabel);
+    drawTrend(key, d);
+    drawDriverBars(key, d.drivers);
+  });
+  initTabs();
+})();
+</script>
+</body>
+</html>
