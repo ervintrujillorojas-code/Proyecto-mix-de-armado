@@ -213,7 +213,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">497</div><div class="foot">479 OPs · 432 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">117</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">315</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$1,76M</div><div class="foot">Atlántico $18.770 neto por cama · demás $13.000</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$1,85M</div><div class="foot">123 camas armadas · Atlántico $18.770 neto por cama · demás $13.000</div></div>
       </div>
     </section>
 
@@ -233,11 +233,11 @@
     </section>
 
     <section>
-      <div class="section-head"><h2>Resumen por departamento</h2><span class="note">Otros = no entregada + armado complejo + pendiente</span></div>
+      <div class="section-head"><h2>Resumen por departamento</h2><span class="note">Otros = no entregada + armado complejo + pendiente · *Camas armadas = suma de Cantidad, base del ahorro</span></div>
       <div class="card table-card">
         <table class="mini-table">
-          <thead><tr><th>Departamento</th><th>Camas</th><th>Armadas</th><th>No armadas</th><th>Otros</th><th>% Armado</th><th>Pago transp.</th><th>Ahorro neto</th></tr></thead>
-          <tbody><tr><td>Antioquia</td><td>157</td><td>61</td><td>72</td><td>24</td><td><b>45,9%</b></td><td>$25.000</td><td>$793.000</td></tr><tr><td>Atlántico</td><td>148</td><td>41</td><td>87</td><td>20</td><td><b>32,0%</b></td><td>$19.230</td><td>$769.570</td></tr><tr><td>Bolívar</td><td>98</td><td>6</td><td>84</td><td>8</td><td><b>6,7%</b></td><td>$25.000</td><td>$78.000</td></tr><tr><td>Magdalena</td><td>33</td><td>4</td><td>26</td><td>3</td><td><b>13,3%</b></td><td>$25.000</td><td>$52.000</td></tr><tr><td>Santander</td><td>29</td><td>4</td><td>21</td><td>4</td><td><b>16,0%</b></td><td>$25.000</td><td>$52.000</td></tr><tr><td>Cesar</td><td>13</td><td>0</td><td>10</td><td>3</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>Sucre</td><td>11</td><td>0</td><td>9</td><td>2</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>Córdoba</td><td>5</td><td>0</td><td>4</td><td>1</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>Guajira</td><td>2</td><td>0</td><td>2</td><td>0</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>(sin departamento)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>—</td><td>$25.000</td><td>$13.000</td></tr><tr class="tot"><td>Total</td><td>497</td><td>117</td><td>315</td><td>65</td><td>27,1%</td><td></td><td>$1.757.570</td></tr></tbody>
+          <thead><tr><th>Departamento</th><th>Camas</th><th>Armadas</th><th>No armadas</th><th>Otros</th><th>% Armado</th><th>Camas armadas*</th><th>Pago transp.</th><th>Ahorro neto</th></tr></thead>
+          <tbody><tr><td>Antioquia</td><td>157</td><td>61</td><td>72</td><td>24</td><td><b>45,9%</b></td><td>64</td><td>$25.000</td><td>$832.000</td></tr><tr><td>Atlántico</td><td>148</td><td>41</td><td>87</td><td>20</td><td><b>32,0%</b></td><td>44</td><td>$19.230</td><td>$825.880</td></tr><tr><td>Bolívar</td><td>98</td><td>6</td><td>84</td><td>8</td><td><b>6,7%</b></td><td>6</td><td>$25.000</td><td>$78.000</td></tr><tr><td>Magdalena</td><td>33</td><td>4</td><td>26</td><td>3</td><td><b>13,3%</b></td><td>4</td><td>$25.000</td><td>$52.000</td></tr><tr><td>Santander</td><td>29</td><td>4</td><td>21</td><td>4</td><td><b>16,0%</b></td><td>4</td><td>$25.000</td><td>$52.000</td></tr><tr><td>Cesar</td><td>13</td><td>0</td><td>10</td><td>3</td><td><b>0,0%</b></td><td>0</td><td>$25.000</td><td>$0</td></tr><tr><td>Sucre</td><td>11</td><td>0</td><td>9</td><td>2</td><td><b>0,0%</b></td><td>0</td><td>$25.000</td><td>$0</td></tr><tr><td>Córdoba</td><td>5</td><td>0</td><td>4</td><td>1</td><td><b>0,0%</b></td><td>0</td><td>$25.000</td><td>$0</td></tr><tr><td>Guajira</td><td>2</td><td>0</td><td>2</td><td>0</td><td><b>0,0%</b></td><td>0</td><td>$25.000</td><td>$0</td></tr><tr><td>(sin departamento)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>—</td><td>1</td><td>$25.000</td><td>$13.000</td></tr><tr class="tot"><td>Total</td><td>497</td><td>117</td><td>315</td><td>65</td><td>27,1%</td><td>123</td><td></td><td>$1.852.880</td></tr></tbody>
         </table>
       </div>
     </section>
@@ -245,9 +245,9 @@
     <section>
       <div class="section-head"><h2>Impacto económico</h2></div>
       <div class="fin-strip">
-        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$1.757.570</div><div class="foot">117 camas armadas × (tarifa evitada − pago al transportador)</div></div>
-        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$2.688.430</div><div class="foot">$19.230 por cama en Atlántico, $25.000 en los demás departamentos</div></div>
-        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$4.446.000</div><div class="foot">117 camas × $38.000</div></div>
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$1.852.880</div><div class="foot">123 camas armadas × (tarifa evitada − pago al transportador) · 117 filas armadas + 6 camas adicionales en OPs con cantidad mayor a 1</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$2.821.120</div><div class="foot">$19.230 por cama en Atlántico, $25.000 en los demás departamentos</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$4.674.000</div><div class="foot">123 camas × $38.000</div></div>
       </div>
     </section>
 
@@ -265,7 +265,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">157</div><div class="foot">153 OPs · 133 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">61</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">72</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,79M</div><div class="foot">neto por cama: $13.000</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,83M</div><div class="foot">64 camas armadas · neto por cama: $13.000</div></div>
       </div>
     </section>
 
@@ -287,9 +287,9 @@
     <section>
       <div class="section-head"><h2>Impacto económico</h2></div>
       <div class="fin-strip">
-        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$793.000</div><div class="foot">61 camas armadas × (tarifa evitada − pago al transportador)</div></div>
-        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$1.525.000</div><div class="foot">$25.000 por cama armada</div></div>
-        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$2.318.000</div><div class="foot">61 camas × $38.000</div></div>
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$832.000</div><div class="foot">64 camas armadas × (tarifa evitada − pago al transportador) · 61 filas armadas + 3 camas adicionales en OPs con cantidad mayor a 1</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$1.600.000</div><div class="foot">$25.000 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$2.432.000</div><div class="foot">64 camas × $38.000</div></div>
       </div>
     </section>
 
@@ -307,7 +307,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">148</div><div class="foot">142 OPs · 128 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">41</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">87</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,77M</div><div class="foot">neto por cama: $18.770</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,83M</div><div class="foot">44 camas armadas · neto por cama: $18.770</div></div>
       </div>
     </section>
 
@@ -329,9 +329,9 @@
     <section>
       <div class="section-head"><h2>Impacto económico</h2></div>
       <div class="fin-strip">
-        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$769.570</div><div class="foot">41 camas armadas × (tarifa evitada − pago al transportador)</div></div>
-        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$788.430</div><div class="foot">$19.230 por cama armada</div></div>
-        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$1.558.000</div><div class="foot">41 camas × $38.000</div></div>
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$825.880</div><div class="foot">44 camas armadas × (tarifa evitada − pago al transportador) · 41 filas armadas + 3 camas adicionales en OPs con cantidad mayor a 1</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$846.120</div><div class="foot">$19.230 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$1.672.000</div><div class="foot">44 camas × $38.000</div></div>
       </div>
     </section>
 
@@ -349,7 +349,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">98</div><div class="foot">96 OPs · 90 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">6</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">84</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,08M</div><div class="foot">neto por cama: $13.000</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,08M</div><div class="foot">6 camas armadas · neto por cama: $13.000</div></div>
       </div>
     </section>
 
@@ -391,7 +391,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">29</div><div class="foot">25 OPs · 25 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">4</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">21</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,05M</div><div class="foot">neto por cama: $13.000</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,05M</div><div class="foot">4 camas armadas · neto por cama: $13.000</div></div>
       </div>
     </section>
 
@@ -433,7 +433,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">33</div><div class="foot">31 OPs · 30 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">4</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">26</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,05M</div><div class="foot">neto por cama: $13.000</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,05M</div><div class="foot">4 camas armadas · neto por cama: $13.000</div></div>
       </div>
     </section>
 
@@ -475,7 +475,7 @@
         <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">31</div><div class="foot">31 OPs · 25 con oportunidad de armar</div></div>
         <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">0</div><div class="foot">por el transportador en la entrega</div></div>
         <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">25</div><div class="foot">entregadas sin armar</div></div>
-        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,00M</div><div class="foot">neto por cama: $13.000</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,00M</div><div class="foot">0 camas armadas · neto por cama: $13.000</div></div>
       </div>
     </section>
 
@@ -509,7 +509,7 @@
     </section>
   </div>
 
-  <div class="tab-footer">Fuente: <em>Gestión OPs armado transportista 2026.xlsx</em> (una hoja por día, 1 oct – 13 oct 2026). Corte: 15/10/2026, datos hasta el 13 oct; las hojas del 14 y 15 de octubre todavía no tienen la gestión completa y entran en el próximo corte. Unidad: cama = una fila OP + producto; una OP que aparece en varios días cuenta como un intento por día. % armado = armadas / (armadas + no armadas); no entregada (incluye producto agotado), armado complejo ("cama de armado complejo para el transportador", "complejo para armar") y pendiente / sin dato se reportan aparte. Ahorro neto por cama = $38.000 de tarifa de proveedor evitada − pago al transportador ($19.230 en Atlántico, $25.000 en Antioquia, Bolívar, Magdalena, Santander, Cesar, Córdoba, Sucre y Guajira). Una cama armada sin departamento (1 oct, conductor de Antioquia) solo suma en el total nacional, con tarifa de $25.000. Nombres de conductor normalizados con la misma lista de alias del README.</div>
+  <div class="tab-footer">Fuente: <em>Gestión OPs armado transportista 2026.xlsx</em> (una hoja por día, 1 oct – 13 oct 2026). Corte: 15/10/2026, datos hasta el 13 oct; las hojas del 14 y 15 de octubre todavía no tienen la gestión completa y entran en el próximo corte. Unidad: cama = una fila OP + producto para el % armado y los conteos; el ahorro se calcula por cama física armada (columna Cantidad: una fila con cantidad 2 son 2 camas, y una alcoba cuenta igual que una cama). Una OP que aparece en varios días cuenta como un intento por día. % armado = armadas / (armadas + no armadas); no entregada (incluye producto agotado), armado complejo ("cama de armado complejo para el transportador", "complejo para armar") y pendiente / sin dato se reportan aparte. Ahorro neto por cama = $38.000 de tarifa de proveedor evitada − pago al transportador ($19.230 en Atlántico, $25.000 en Antioquia, Bolívar, Magdalena, Santander, Cesar, Córdoba, Sucre y Guajira). Una cama armada sin departamento (1 oct, conductor de Antioquia) solo suma en el total nacional, con tarifa de $25.000. Nombres de conductor normalizados con la misma lista de alias del README.</div>
 
   </div><!-- /ma-octubre -->
   <!-- OCTUBRE:END -->
