@@ -156,6 +156,20 @@
 
   footer.page-footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--muted); line-height: 1.6; }
   footer.page-footer em { font-style: italic; }
+  /* ---- octubre: tabla y ajustes ---- */
+  .hero-grid.five { grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); }
+  .bar-row.wide { grid-template-columns: 170px 1fr 64px; }
+  .table-card { overflow-x: auto; padding: 8px 12px; }
+  .mini-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 620px; }
+  .mini-table th { text-align: right; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 8px; border-bottom: 1px solid var(--border); }
+  .mini-table td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); color: var(--ink-2); }
+  .mini-table th:first-child, .mini-table td:first-child { text-align: left; }
+  .mini-table td:first-child { color: var(--ink); font-weight: 600; }
+  .mini-table tr.tot td { color: var(--ink); font-weight: 750; border-bottom: none; }
+  .att-list { margin: 6px 0 0 18px; font-size: 13px; color: var(--ink-2); }
+  .att-list li { margin: 2px 0; }
+  @media (max-width: 560px) { .bar-row.wide { grid-template-columns: 110px 1fr 58px; } }
+/* OCT-CSS-END */
 </style>
 </head>
 <body>
@@ -166,17 +180,342 @@
     <h1>Mix de armado</h1>
     <div class="meta">
       <span><b>Emitido:</b> 10/09/2026</span>
-      <span><b>Actualizado:</b> 30/09/2026 — corte Atlántico extendido a 29/09 (6 días nuevos de septiembre); Antioquia sin cambios (corte al 16/09)</span>
+      <span><b>Actualizado:</b> 15/10/2026 — se agrega Octubre (nacional), 1–13 oct, nueva fuente por departamento; Atlántico y Antioquia quedan como histórico (corte al 29/09)</span>
     </div>
   </header>
 
   <div class="tabbar outer" role="tablist">
-    <button type="button" class="active" data-group="outer" data-target="ma-atlantico">Atlántico</button>
+    <button type="button" class="active" data-group="outer" data-target="ma-octubre">Octubre (nacional)</button>
+    <button type="button" data-group="outer" data-target="ma-atlantico">Atlántico</button>
     <button type="button" data-group="outer" data-target="ma-antioquia">Antioquia</button>
   </div>
 
-  <!-- ======================= ATLÁNTICO ======================= -->
-  <div id="ma-atlantico" class="panel active">
+<!-- OCTUBRE:START (generado por octubre.py — no editar a mano, regenerar) -->
+  <!-- ======================= OCTUBRE (NACIONAL) ======================= -->
+  <div id="ma-octubre" class="panel active">
+
+  <div class="tabbar" role="tablist">
+    <button type="button" class="active" data-group="oct" data-target="ma-oct-consolidado">Consolidado</button>
+    <button type="button" data-group="oct" data-target="ma-oct-antioquia">Antioquia</button>
+    <button type="button" data-group="oct" data-target="ma-oct-atlantico">Atlántico</button>
+    <button type="button" data-group="oct" data-target="ma-oct-bolivar">Bolívar</button>
+    <button type="button" data-group="oct" data-target="ma-oct-santander">Santander</button>
+    <button type="button" data-group="oct" data-target="ma-oct-magdalena">Magdalena</button>
+    <button type="button" data-group="oct" data-target="ma-oct-otros">Otros</button>
+  </div>
+
+  <div id="ma-oct-consolidado" class="panel active">
+    <p class="tab-intro">1 oct – 13 oct 2026 · 10 días con registro · 497 camas gestionadas en 9 departamentos · fuente nacional nueva desde el 1 de octubre (no comparable 1 a 1 con los pilotos de julio a septiembre).</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado nacional</div><div class="value">27,1%</div><span class="chip flat">117 de 432 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">497</div><div class="foot">479 OPs · 432 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">117</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">315</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$1,76M</div><div class="foot">Atlántico $18.770 neto por cama · demás $13.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>% Armado por departamento</h3><div class="sub">Armadas / (armadas + no armadas)</div><div class="bar-row wide" title="61 de 133 camas"><span class="lbl">Antioquia</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1);"></div></div><span class="num">45,9%</span></div><div class="bar-row wide" title="41 de 128 camas"><span class="lbl">Atlántico</span><div class="bar-track"><div class="bar-fill" style="width:69.8%; background:var(--s1);"></div></div><span class="num">32,0%</span></div><div class="bar-row wide" title="4 de 25 camas"><span class="lbl">Santander</span><div class="bar-track"><div class="bar-fill" style="width:34.9%; background:var(--s1);"></div></div><span class="num">16,0%</span></div><div class="bar-row wide" title="4 de 30 camas"><span class="lbl">Magdalena</span><div class="bar-track"><div class="bar-fill" style="width:29.1%; background:var(--s1);"></div></div><span class="num">13,3%</span></div><div class="bar-row wide" title="6 de 90 camas"><span class="lbl">Bolívar</span><div class="bar-track"><div class="bar-fill" style="width:14.5%; background:var(--s1);"></div></div><span class="num">6,7%</span></div><div class="bar-row wide" title="0 de 10 camas"><span class="lbl">Cesar</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0,0%</span></div><div class="bar-row wide" title="0 de 4 camas"><span class="lbl">Córdoba</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0,0%</span></div><div class="bar-row wide" title="0 de 2 camas"><span class="lbl">Guajira</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0,0%</span></div><div class="bar-row wide" title="0 de 9 camas"><span class="lbl">Sucre</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0,0%</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Nacional, 1 oct – 13 oct 2026</div><div class="bar-row wide" title="12 de 42 camas"><span class="lbl">1 oct</span><div class="bar-track"><div class="bar-fill" style="width:55.8%; background:var(--s1);"></div></div><span class="num">29%</span></div><div class="bar-row wide" title="16 de 49 camas"><span class="lbl">2 oct</span><div class="bar-track"><div class="bar-fill" style="width:63.8%; background:var(--s1);"></div></div><span class="num">33%</span></div><div class="bar-row wide" title="6 de 49 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:23.9%; background:var(--s1);"></div></div><span class="num">12%</span></div><div class="bar-row wide" title="10 de 50 camas"><span class="lbl">5 oct</span><div class="bar-track"><div class="bar-fill" style="width:39.0%; background:var(--s1);"></div></div><span class="num">20%</span></div><div class="bar-row wide" title="11 de 55 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:39.0%; background:var(--s1);"></div></div><span class="num">20%</span></div><div class="bar-row wide" title="16 de 50 camas"><span class="lbl">7 oct</span><div class="bar-track"><div class="bar-fill" style="width:62.5%; background:var(--s1);"></div></div><span class="num">32%</span></div><div class="bar-row wide" title="8 de 39 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:40.0%; background:var(--s1);"></div></div><span class="num">21%</span></div><div class="bar-row wide" title="21 de 41 camas"><span class="lbl">9 oct</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1);"></div></div><span class="num">51%</span></div><div class="bar-row wide" title="15 de 33 camas"><span class="lbl">10 oct</span><div class="bar-track"><div class="bar-fill" style="width:88.7%; background:var(--s1);"></div></div><span class="num">45%</span></div><div class="bar-row wide" title="2 de 24 camas"><span class="lbl">13 oct</span><div class="bar-track"><div class="bar-fill" style="width:16.3%; background:var(--s1);"></div></div><span class="num">8%</span></div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">315 camas entregadas sin armar · nacional</div><div class="bar-row wide" title="59,0% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">186</span></div><div class="bar-row wide" title="11,1% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:18.8%; background:var(--s8);"></div></div><span class="num">35</span></div><div class="bar-row wide" title="9,8% de las no armadas"><span class="lbl">Sin motivo registrado</span><div class="bar-track"><div class="bar-fill" style="width:16.7%; background:var(--s8);"></div></div><span class="num">31</span></div><div class="bar-row wide" title="6,0% de las no armadas"><span class="lbl">Cliente traslada / recoge en bodega</span><div class="bar-track"><div class="bar-fill" style="width:10.2%; background:var(--s8);"></div></div><span class="num">19</span></div><div class="bar-row wide" title="4,8% de las no armadas"><span class="lbl">Cliente arma por su cuenta</span><div class="bar-track"><div class="bar-fill" style="width:8.1%; background:var(--s8);"></div></div><span class="num">15</span></div><div class="bar-row wide" title="4,1% de las no armadas"><span class="lbl">Cliente recibe sin armar</span><div class="bar-track"><div class="bar-fill" style="width:7.0%; background:var(--s8);"></div></div><span class="num">13</span></div><div class="bar-row wide" title="3,2% de las no armadas"><span class="lbl">Cliente prefiere técnico / no estaba</span><div class="bar-track"><div class="bar-fill" style="width:5.4%; background:var(--s8);"></div></div><span class="num">10</span></div><div class="bar-row wide" title="1,3% de las no armadas"><span class="lbl">Otros (devolución, faltante, ausente)</span><div class="bar-track"><div class="bar-fill" style="width:2.2%; background:var(--s8);"></div></div><span class="num">4</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">497 camas · nacional</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:37.1%; background:var(--good);"></div></div><span class="num">117</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">315</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:13.0%; background:var(--muted);"></div></div><span class="num">41</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:6.3%; background:var(--muted);"></div></div><span class="num">20</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:1.3%; background:var(--muted);"></div></div><span class="num">4</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Resumen por departamento</h2><span class="note">Otros = no entregada + armado complejo + pendiente</span></div>
+      <div class="card table-card">
+        <table class="mini-table">
+          <thead><tr><th>Departamento</th><th>Camas</th><th>Armadas</th><th>No armadas</th><th>Otros</th><th>% Armado</th><th>Pago transp.</th><th>Ahorro neto</th></tr></thead>
+          <tbody><tr><td>Antioquia</td><td>157</td><td>61</td><td>72</td><td>24</td><td><b>45,9%</b></td><td>$25.000</td><td>$793.000</td></tr><tr><td>Atlántico</td><td>148</td><td>41</td><td>87</td><td>20</td><td><b>32,0%</b></td><td>$19.230</td><td>$769.570</td></tr><tr><td>Bolívar</td><td>98</td><td>6</td><td>84</td><td>8</td><td><b>6,7%</b></td><td>$25.000</td><td>$78.000</td></tr><tr><td>Magdalena</td><td>33</td><td>4</td><td>26</td><td>3</td><td><b>13,3%</b></td><td>$25.000</td><td>$52.000</td></tr><tr><td>Santander</td><td>29</td><td>4</td><td>21</td><td>4</td><td><b>16,0%</b></td><td>$25.000</td><td>$52.000</td></tr><tr><td>Cesar</td><td>13</td><td>0</td><td>10</td><td>3</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>Sucre</td><td>11</td><td>0</td><td>9</td><td>2</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>Córdoba</td><td>5</td><td>0</td><td>4</td><td>1</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>Guajira</td><td>2</td><td>0</td><td>2</td><td>0</td><td><b>0,0%</b></td><td>$25.000</td><td>$0</td></tr><tr><td>(sin departamento)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>—</td><td>$25.000</td><td>$13.000</td></tr><tr class="tot"><td>Total</td><td>497</td><td>117</td><td>315</td><td>65</td><td>27,1%</td><td></td><td>$1.757.570</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$1.757.570</div><div class="foot">117 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$2.688.430</div><div class="foot">$19.230 por cama en Atlántico, $25.000 en los demás departamentos</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$4.446.000</div><div class="foot">117 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item amber"><div class="stripe"></div><div><p><b>Productos con 0% armado</b> (con 5 o más camas con oportunidad de armar):</p><ul class="att-list"><li><b>Cama 1.00 Dublin Roble Natural</b> — 0 de 7</li><li><b>Alcoba Doble Soho Premier Perla, Champaña</b> — 0 de 5</li><li><b>Cama 1.00 Moscu Marfil, Natural</b> — 0 de 5</li><li><b>Cama Doble Alicante Beige</b> — 0 de 5</li><li><b>Cama Doble Marriot Greige, Champaña</b> — 0 de 5</li><li><b>Cama Doble Vallarta Eurolino Gris, Natural</b> — 0 de 5</li><li><b>Cama Semi Doble Vallarta Eurolino Gris, Natural</b> — 0 de 5</li><li><b>Juego de Alcoba Doble Celestia Eurolino Perla, Champaña</b> — 0 de 5</li></ul></div></div></div>
+    </section>
+  </div>
+  <div id="ma-oct-antioquia" class="panel">
+    <p class="tab-intro">Antioquia · 1 oct – 13 oct 2026 · 10 días con registro · 157 camas gestionadas · pago al transportador $25.000 por cama armada.</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado — Antioquia</div><div class="value">45,9%</div><span class="chip flat">61 de 133 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">157</div><div class="foot">153 OPs · 133 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">61</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">72</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,79M</div><div class="foot">neto por cama: $13.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">72 camas entregadas sin armar</div><div class="bar-row wide" title="40,3% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">29</span></div><div class="bar-row wide" title="20,8% de las no armadas"><span class="lbl">Sin motivo registrado</span><div class="bar-track"><div class="bar-fill" style="width:51.7%; background:var(--s8);"></div></div><span class="num">15</span></div><div class="bar-row wide" title="9,7% de las no armadas"><span class="lbl">Cliente traslada / recoge en bodega</span><div class="bar-track"><div class="bar-fill" style="width:24.1%; background:var(--s8);"></div></div><span class="num">7</span></div><div class="bar-row wide" title="6,9% de las no armadas"><span class="lbl">Cliente prefiere técnico / no estaba</span><div class="bar-track"><div class="bar-fill" style="width:17.2%; background:var(--s8);"></div></div><span class="num">5</span></div><div class="bar-row wide" title="6,9% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:17.2%; background:var(--s8);"></div></div><span class="num">5</span></div><div class="bar-row wide" title="6,9% de las no armadas"><span class="lbl">Cliente recibe sin armar</span><div class="bar-track"><div class="bar-fill" style="width:17.2%; background:var(--s8);"></div></div><span class="num">5</span></div><div class="bar-row wide" title="4,2% de las no armadas"><span class="lbl">Cliente arma por su cuenta</span><div class="bar-track"><div class="bar-fill" style="width:10.3%; background:var(--s8);"></div></div><span class="num">3</span></div><div class="bar-row wide" title="2,8% de las no armadas"><span class="lbl">Otros (devolución, faltante, ausente)</span><div class="bar-track"><div class="bar-fill" style="width:6.9%; background:var(--s8);"></div></div><span class="num">2</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">157 camas gestionadas</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:84.7%; background:var(--good);"></div></div><span class="num">61</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">72</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:25.0%; background:var(--muted);"></div></div><span class="num">18</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:6.9%; background:var(--muted);"></div></div><span class="num">5</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:1.4%; background:var(--muted);"></div></div><span class="num">1</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Armadas por conductor</h3><div class="sub">Camas de este departamento · se muestran 10 de 25 · barra azul = armadas, barra gris = camas con oportunidad de armar</div><div class="bar-row wide"><span class="lbl">Juan Lopez</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:62.5%; background:var(--s1);"></div></div><span class="num">10 / 16</span></div><div class="bar-row wide"><span class="lbl">Huberney Goez</span><div class="bar-track"><div class="bar-fill" style="width:81.2%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:50.0%; background:var(--s1);"></div></div><span class="num">8 / 13</span></div><div class="bar-row wide"><span class="lbl">Daniel Sabala</span><div class="bar-track"><div class="bar-fill" style="width:75.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:50.0%; background:var(--s1);"></div></div><span class="num">8 / 12</span></div><div class="bar-row wide"><span class="lbl">Jorge Luis Serna</span><div class="bar-track"><div class="bar-fill" style="width:81.2%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:37.5%; background:var(--s1);"></div></div><span class="num">6 / 13</span></div><div class="bar-row wide"><span class="lbl">Jesús Saldarriaga</span><div class="bar-track"><div class="bar-fill" style="width:62.5%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:31.2%; background:var(--s1);"></div></div><span class="num">5 / 10</span></div><div class="bar-row wide"><span class="lbl">Freddy Caro</span><div class="bar-track"><div class="bar-fill" style="width:43.8%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:25.0%; background:var(--s1);"></div></div><span class="num">4 / 7</span></div><div class="bar-row wide"><span class="lbl">Juan Carlos Mora</span><div class="bar-track"><div class="bar-fill" style="width:31.2%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:18.8%; background:var(--s1);"></div></div><span class="num">3 / 5</span></div><div class="bar-row wide"><span class="lbl">Luis Fernando Caro</span><div class="bar-track"><div class="bar-fill" style="width:56.2%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:12.5%; background:var(--s1);"></div></div><span class="num">2 / 9</span></div><div class="bar-row wide"><span class="lbl">Luis Arboleda</span><div class="bar-track"><div class="bar-fill" style="width:37.5%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:12.5%; background:var(--s1);"></div></div><span class="num">2 / 6</span></div><div class="bar-row wide"><span class="lbl">Oscar Brand</span><div class="bar-track"><div class="bar-fill" style="width:25.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:12.5%; background:var(--s1);"></div></div><span class="num">2 / 4</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Antioquia</div><div class="bar-row wide" title="9 de 21 camas"><span class="lbl">1 oct</span><div class="bar-track"><div class="bar-fill" style="width:42.9%; background:var(--s1);"></div></div><span class="num">43%</span></div><div class="bar-row wide" title="9 de 20 camas"><span class="lbl">2 oct</span><div class="bar-track"><div class="bar-fill" style="width:45.0%; background:var(--s1);"></div></div><span class="num">45%</span></div><div class="bar-row wide" title="4 de 16 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:25.0%; background:var(--s1);"></div></div><span class="num">25%</span></div><div class="bar-row wide" title="7 de 13 camas"><span class="lbl">5 oct</span><div class="bar-track"><div class="bar-fill" style="width:53.8%; background:var(--s1);"></div></div><span class="num">54%</span></div><div class="bar-row wide" title="3 de 6 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:50.0%; background:var(--s1);"></div></div><span class="num">50%</span></div><div class="bar-row wide" title="8 de 18 camas"><span class="lbl">7 oct</span><div class="bar-track"><div class="bar-fill" style="width:44.4%; background:var(--s1);"></div></div><span class="num">44%</span></div><div class="bar-row wide" title="3 de 10 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:30.0%; background:var(--s1);"></div></div><span class="num">30%</span></div><div class="bar-row wide" title="11 de 15 camas"><span class="lbl">9 oct</span><div class="bar-track"><div class="bar-fill" style="width:73.3%; background:var(--s1);"></div></div><span class="num">73%</span></div><div class="bar-row wide" title="5 de 10 camas"><span class="lbl">10 oct</span><div class="bar-track"><div class="bar-fill" style="width:50.0%; background:var(--s1);"></div></div><span class="num">50%</span></div><div class="bar-row wide" title="2 de 4 camas"><span class="lbl">13 oct</span><div class="bar-track"><div class="bar-fill" style="width:50.0%; background:var(--s1);"></div></div><span class="num">50%</span></div></div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$793.000</div><div class="foot">61 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$1.525.000</div><div class="foot">$25.000 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$2.318.000</div><div class="foot">61 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item amber"><div class="stripe"></div><div><p><b>Productos con 0% armado</b> (con 3 o más camas con oportunidad de armar):</p><ul class="att-list"><li><b>Cama 1.00 Dublin Roble Natural</b> — 0 de 4</li><li><b>Alcoba Doble Soho Premier Perla, Champaña</b> — 0 de 3</li></ul></div></div></div>
+    </section>
+  </div>
+  <div id="ma-oct-atlantico" class="panel">
+    <p class="tab-intro">Atlántico · 1 oct – 13 oct 2026 · 9 días con registro · 148 camas gestionadas · pago al transportador $19.230 por cama armada.</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado — Atlántico</div><div class="value">32,0%</div><span class="chip flat">41 de 128 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">148</div><div class="foot">142 OPs · 128 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">41</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">87</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,77M</div><div class="foot">neto por cama: $18.770</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">87 camas entregadas sin armar</div><div class="bar-row wide" title="74,7% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">65</span></div><div class="bar-row wide" title="10,3% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:13.8%; background:var(--s8);"></div></div><span class="num">9</span></div><div class="bar-row wide" title="4,6% de las no armadas"><span class="lbl">Cliente arma por su cuenta</span><div class="bar-track"><div class="bar-fill" style="width:6.2%; background:var(--s8);"></div></div><span class="num">4</span></div><div class="bar-row wide" title="3,4% de las no armadas"><span class="lbl">Cliente traslada / recoge en bodega</span><div class="bar-track"><div class="bar-fill" style="width:4.6%; background:var(--s8);"></div></div><span class="num">3</span></div><div class="bar-row wide" title="2,3% de las no armadas"><span class="lbl">Sin motivo registrado</span><div class="bar-track"><div class="bar-fill" style="width:3.1%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="2,3% de las no armadas"><span class="lbl">Cliente recibe sin armar</span><div class="bar-track"><div class="bar-fill" style="width:3.1%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="1,1% de las no armadas"><span class="lbl">Cliente prefiere técnico / no estaba</span><div class="bar-track"><div class="bar-fill" style="width:1.5%; background:var(--s8);"></div></div><span class="num">1</span></div><div class="bar-row wide" title="1,1% de las no armadas"><span class="lbl">Entrega parcial</span><div class="bar-track"><div class="bar-fill" style="width:1.5%; background:var(--s8);"></div></div><span class="num">1</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">148 camas gestionadas</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:47.1%; background:var(--good);"></div></div><span class="num">41</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">87</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:10.3%; background:var(--muted);"></div></div><span class="num">9</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:10.3%; background:var(--muted);"></div></div><span class="num">9</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:2.3%; background:var(--muted);"></div></div><span class="num">2</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Armadas por conductor</h3><div class="sub">Camas de este departamento · se muestran 10 de 24 · barra azul = armadas, barra gris = camas con oportunidad de armar</div><div class="bar-row wide"><span class="lbl">Jerson Aleman</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:55.6%; background:var(--s1);"></div></div><span class="num">5 / 9</span></div><div class="bar-row wide"><span class="lbl">Juan Meza</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:44.4%; background:var(--s1);"></div></div><span class="num">4 / 9</span></div><div class="bar-row wide"><span class="lbl">Yamid Roncallo</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:44.4%; background:var(--s1);"></div></div><span class="num">4 / 9</span></div><div class="bar-row wide"><span class="lbl">Francisco Meza</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">3 / 9</span></div><div class="bar-row wide"><span class="lbl">Fernando Cantillo</span><div class="bar-track"><div class="bar-fill" style="width:88.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">3 / 8</span></div><div class="bar-row wide"><span class="lbl">Jhon Marín</span><div class="bar-track"><div class="bar-fill" style="width:88.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">3 / 8</span></div><div class="bar-row wide"><span class="lbl">Zair Rodriguez</span><div class="bar-track"><div class="bar-fill" style="width:66.7%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">3 / 6</span></div><div class="bar-row wide"><span class="lbl">Armando Renal</span><div class="bar-track"><div class="bar-fill" style="width:88.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:22.2%; background:var(--s1);"></div></div><span class="num">2 / 8</span></div><div class="bar-row wide"><span class="lbl">Deivis De La Cruz</span><div class="bar-track"><div class="bar-fill" style="width:77.8%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:22.2%; background:var(--s1);"></div></div><span class="num">2 / 7</span></div><div class="bar-row wide"><span class="lbl">Abel Rada</span><div class="bar-track"><div class="bar-fill" style="width:44.4%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:22.2%; background:var(--s1);"></div></div><span class="num">2 / 4</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Atlántico</div><div class="bar-row wide" title="7 de 20 camas"><span class="lbl">2 oct</span><div class="bar-track"><div class="bar-fill" style="width:35.0%; background:var(--s1);"></div></div><span class="num">35%</span></div><div class="bar-row wide" title="2 de 9 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:22.2%; background:var(--s1);"></div></div><span class="num">22%</span></div><div class="bar-row wide" title="3 de 22 camas"><span class="lbl">5 oct</span><div class="bar-track"><div class="bar-fill" style="width:13.6%; background:var(--s1);"></div></div><span class="num">14%</span></div><div class="bar-row wide" title="6 de 18 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">33%</span></div><div class="bar-row wide" title="7 de 16 camas"><span class="lbl">7 oct</span><div class="bar-track"><div class="bar-fill" style="width:43.8%; background:var(--s1);"></div></div><span class="num">44%</span></div><div class="bar-row wide" title="5 de 9 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:55.6%; background:var(--s1);"></div></div><span class="num">56%</span></div><div class="bar-row wide" title="5 de 14 camas"><span class="lbl">9 oct</span><div class="bar-track"><div class="bar-fill" style="width:35.7%; background:var(--s1);"></div></div><span class="num">36%</span></div><div class="bar-row wide" title="6 de 13 camas"><span class="lbl">10 oct</span><div class="bar-track"><div class="bar-fill" style="width:46.2%; background:var(--s1);"></div></div><span class="num">46%</span></div><div class="bar-row wide" title="0 de 7 camas"><span class="lbl">13 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div></div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$769.570</div><div class="foot">41 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$788.430</div><div class="foot">$19.230 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$1.558.000</div><div class="foot">41 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item amber"><div class="stripe"></div><div><p><b>Productos con 0% armado</b> (con 3 o más camas con oportunidad de armar):</p><ul class="att-list"><li><b>OBSEQ CAMA 1 40 AURORA VELVET GRIS SIN T</b> — 0 de 6</li></ul></div></div></div>
+    </section>
+  </div>
+  <div id="ma-oct-bolivar" class="panel">
+    <p class="tab-intro">Bolívar · 1 oct – 13 oct 2026 · 10 días con registro · 98 camas gestionadas · pago al transportador $25.000 por cama armada.</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado — Bolívar</div><div class="value">6,7%</div><span class="chip flat">6 de 90 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">98</div><div class="foot">96 OPs · 90 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">6</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">84</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,08M</div><div class="foot">neto por cama: $13.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">84 camas entregadas sin armar</div><div class="bar-row wide" title="60,7% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">51</span></div><div class="bar-row wide" title="11,9% de las no armadas"><span class="lbl">Sin motivo registrado</span><div class="bar-track"><div class="bar-fill" style="width:19.6%; background:var(--s8);"></div></div><span class="num">10</span></div><div class="bar-row wide" title="10,7% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:17.6%; background:var(--s8);"></div></div><span class="num">9</span></div><div class="bar-row wide" title="7,1% de las no armadas"><span class="lbl">Cliente arma por su cuenta</span><div class="bar-track"><div class="bar-fill" style="width:11.8%; background:var(--s8);"></div></div><span class="num">6</span></div><div class="bar-row wide" title="3,6% de las no armadas"><span class="lbl">Cliente traslada / recoge en bodega</span><div class="bar-track"><div class="bar-fill" style="width:5.9%; background:var(--s8);"></div></div><span class="num">3</span></div><div class="bar-row wide" title="2,4% de las no armadas"><span class="lbl">Otros (devolución, faltante, ausente)</span><div class="bar-track"><div class="bar-fill" style="width:3.9%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="2,4% de las no armadas"><span class="lbl">Cliente recibe sin armar</span><div class="bar-track"><div class="bar-fill" style="width:3.9%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="1,2% de las no armadas"><span class="lbl">Cliente prefiere técnico / no estaba</span><div class="bar-track"><div class="bar-fill" style="width:2.0%; background:var(--s8);"></div></div><span class="num">1</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">98 camas gestionadas</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:7.1%; background:var(--good);"></div></div><span class="num">6</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">84</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:6.0%; background:var(--muted);"></div></div><span class="num">5</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:3.6%; background:var(--muted);"></div></div><span class="num">3</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--muted);"></div></div><span class="num">0</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Armadas por conductor</h3><div class="sub">Camas de este departamento · se muestran 10 de 26 · barra azul = armadas, barra gris = camas con oportunidad de armar</div><div class="bar-row wide"><span class="lbl">Deivis De La Cruz</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:25.0%; background:var(--s1);"></div></div><span class="num">3 / 4</span></div><div class="bar-row wide"><span class="lbl">Juan Sandoval</span><div class="bar-track"><div class="bar-fill" style="width:41.7%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:16.7%; background:var(--s1);"></div></div><span class="num">2 / 5</span></div><div class="bar-row wide"><span class="lbl">Juan Meza</span><div class="bar-track"><div class="bar-fill" style="width:25.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:8.3%; background:var(--s1);"></div></div><span class="num">1 / 3</span></div><div class="bar-row wide"><span class="lbl">Carlos Torres</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 12</span></div><div class="bar-row wide"><span class="lbl">Jhon Rico</span><div class="bar-track"><div class="bar-fill" style="width:83.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 10</span></div><div class="bar-row wide"><span class="lbl">Victor Gutierrez</span><div class="bar-track"><div class="bar-fill" style="width:66.7%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 8</span></div><div class="bar-row wide"><span class="lbl">Jhon Marín</span><div class="bar-track"><div class="bar-fill" style="width:58.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 7</span></div><div class="bar-row wide"><span class="lbl">Fernando Cantillo</span><div class="bar-track"><div class="bar-fill" style="width:41.7%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 5</span></div><div class="bar-row wide"><span class="lbl">Francisco Meza</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 4</span></div><div class="bar-row wide"><span class="lbl">José Barrera</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 4</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Bolívar</div><div class="bar-row wide" title="0 de 14 camas"><span class="lbl">1 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 7 camas"><span class="lbl">2 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 8 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 10 camas"><span class="lbl">5 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 16 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 7 camas"><span class="lbl">7 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 5 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="4 de 9 camas"><span class="lbl">9 oct</span><div class="bar-track"><div class="bar-fill" style="width:44.4%; background:var(--s1);"></div></div><span class="num">44%</span></div><div class="bar-row wide" title="2 de 6 camas"><span class="lbl">10 oct</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">33%</span></div><div class="bar-row wide" title="0 de 8 camas"><span class="lbl">13 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div></div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$78.000</div><div class="foot">6 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$150.000</div><div class="foot">$25.000 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$228.000</div><div class="foot">6 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item amber"><div class="stripe"></div><div><p><b>Productos con 0% armado</b> (con 3 o más camas con oportunidad de armar):</p><ul class="att-list"><li><b>Cama Doble Celeste Eurolino Beige, Natural</b> — 0 de 4</li><li><b>Cama Doble Fox Natural</b> — 0 de 4</li><li><b>Cama Doble Marriot Greige, Champaña</b> — 0 de 3</li><li><b>Cama Doble Texas Beige, Natural*</b> — 0 de 3</li><li><b>Cama Semi Doble Vallarta Eurolino Gris, Natural</b> — 0 de 3</li><li><b>Juego de Alcoba Doble Celestia Eurolino Perla, Champaña</b> — 0 de 3</li></ul></div></div></div>
+    </section>
+  </div>
+  <div id="ma-oct-santander" class="panel">
+    <p class="tab-intro">Santander · 1 oct – 13 oct 2026 · 6 días con registro · 29 camas gestionadas · pago al transportador $25.000 por cama armada.</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado — Santander</div><div class="value">16,0%</div><span class="chip flat">4 de 25 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">29</div><div class="foot">25 OPs · 25 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">4</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">21</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,05M</div><div class="foot">neto por cama: $13.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">21 camas entregadas sin armar</div><div class="bar-row wide" title="52,4% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">11</span></div><div class="bar-row wide" title="19,0% de las no armadas"><span class="lbl">Cliente traslada / recoge en bodega</span><div class="bar-track"><div class="bar-fill" style="width:36.4%; background:var(--s8);"></div></div><span class="num">4</span></div><div class="bar-row wide" title="14,3% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:27.3%; background:var(--s8);"></div></div><span class="num">3</span></div><div class="bar-row wide" title="9,5% de las no armadas"><span class="lbl">Sin motivo registrado</span><div class="bar-track"><div class="bar-fill" style="width:18.2%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="4,8% de las no armadas"><span class="lbl">Cliente prefiere técnico / no estaba</span><div class="bar-track"><div class="bar-fill" style="width:9.1%; background:var(--s8);"></div></div><span class="num">1</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">29 camas gestionadas</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:19.0%; background:var(--good);"></div></div><span class="num">4</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">21</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:19.0%; background:var(--muted);"></div></div><span class="num">4</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--muted);"></div></div><span class="num">0</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--muted);"></div></div><span class="num">0</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Armadas por conductor</h3><div class="sub">Camas de este departamento · barra azul = armadas, barra gris = camas con oportunidad de armar</div><div class="bar-row wide"><span class="lbl">Richard Charris</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:28.6%; background:var(--s1);"></div></div><span class="num">2 / 7</span></div><div class="bar-row wide"><span class="lbl">Edinson Pinto</span><div class="bar-track"><div class="bar-fill" style="width:42.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:28.6%; background:var(--s1);"></div></div><span class="num">2 / 3</span></div><div class="bar-row wide"><span class="lbl">Fabian Cardenas</span><div class="bar-track"><div class="bar-fill" style="width:85.7%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 6</span></div><div class="bar-row wide"><span class="lbl">Saul Charris</span><div class="bar-track"><div class="bar-fill" style="width:57.1%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 4</span></div><div class="bar-row wide"><span class="lbl">Sebastian Morales</span><div class="bar-track"><div class="bar-fill" style="width:28.6%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">(sin conductor)</span><div class="bar-track"><div class="bar-fill" style="width:14.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 1</span></div><div class="bar-row wide"><span class="lbl">Esteban Saravia</span><div class="bar-track"><div class="bar-fill" style="width:14.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 1</span></div><div class="bar-row wide"><span class="lbl">Pablo Ortega</span><div class="bar-track"><div class="bar-fill" style="width:14.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 1</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Santander</div><div class="bar-row wide" title="1 de 3 camas"><span class="lbl">1 oct</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">33%</span></div><div class="bar-row wide" title="0 de 1 camas"><span class="lbl">2 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 6 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="2 de 5 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:40.0%; background:var(--s1);"></div></div><span class="num">40%</span></div><div class="bar-row wide" title="1 de 6 camas"><span class="lbl">7 oct</span><div class="bar-track"><div class="bar-fill" style="width:16.7%; background:var(--s1);"></div></div><span class="num">17%</span></div><div class="bar-row wide" title="0 de 4 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div></div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$52.000</div><div class="foot">4 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$100.000</div><div class="foot">$25.000 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$152.000</div><div class="foot">4 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item good"><div class="stripe"></div><p>Ningún producto con 3 o más camas quedó en 0% armado en este corte.</p></div></div>
+    </section>
+  </div>
+  <div id="ma-oct-magdalena" class="panel">
+    <p class="tab-intro">Magdalena · 1 oct – 13 oct 2026 · 10 días con registro · 33 camas gestionadas · pago al transportador $25.000 por cama armada.</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado — Magdalena</div><div class="value">13,3%</div><span class="chip flat">4 de 30 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">33</div><div class="foot">31 OPs · 30 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">4</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">26</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,05M</div><div class="foot">neto por cama: $13.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">26 camas entregadas sin armar</div><div class="bar-row wide" title="50,0% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">13</span></div><div class="bar-row wide" title="19,2% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:38.5%; background:var(--s8);"></div></div><span class="num">5</span></div><div class="bar-row wide" title="7,7% de las no armadas"><span class="lbl">Cliente traslada / recoge en bodega</span><div class="bar-track"><div class="bar-fill" style="width:15.4%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="7,7% de las no armadas"><span class="lbl">Cliente prefiere técnico / no estaba</span><div class="bar-track"><div class="bar-fill" style="width:15.4%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="7,7% de las no armadas"><span class="lbl">Sin motivo registrado</span><div class="bar-track"><div class="bar-fill" style="width:15.4%; background:var(--s8);"></div></div><span class="num">2</span></div><div class="bar-row wide" title="7,7% de las no armadas"><span class="lbl">Cliente arma por su cuenta</span><div class="bar-track"><div class="bar-fill" style="width:15.4%; background:var(--s8);"></div></div><span class="num">2</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">33 camas gestionadas</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:15.4%; background:var(--good);"></div></div><span class="num">4</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">26</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:11.5%; background:var(--muted);"></div></div><span class="num">3</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--muted);"></div></div><span class="num">0</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--muted);"></div></div><span class="num">0</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Armadas por conductor</h3><div class="sub">Camas de este departamento · se muestran 10 de 14 · barra azul = armadas, barra gris = camas con oportunidad de armar</div><div class="bar-row wide"><span class="lbl">Fernando Cantillo</span><div class="bar-track"><div class="bar-fill" style="width:42.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:14.3%; background:var(--s1);"></div></div><span class="num">1 / 3</span></div><div class="bar-row wide"><span class="lbl">Armando Renal</span><div class="bar-track"><div class="bar-fill" style="width:28.6%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:14.3%; background:var(--s1);"></div></div><span class="num">1 / 2</span></div><div class="bar-row wide"><span class="lbl">Jerson Aleman</span><div class="bar-track"><div class="bar-fill" style="width:14.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:14.3%; background:var(--s1);"></div></div><span class="num">1 / 1</span></div><div class="bar-row wide"><span class="lbl">Nathan De La Hoz</span><div class="bar-track"><div class="bar-fill" style="width:14.3%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:14.3%; background:var(--s1);"></div></div><span class="num">1 / 1</span></div><div class="bar-row wide"><span class="lbl">Jose Viadero</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 7</span></div><div class="bar-row wide"><span class="lbl">Yamid Roncallo</span><div class="bar-track"><div class="bar-fill" style="width:42.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 3</span></div><div class="bar-row wide"><span class="lbl">Zair Rodriguez</span><div class="bar-track"><div class="bar-fill" style="width:42.9%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 3</span></div><div class="bar-row wide"><span class="lbl">Dorcey Altahona</span><div class="bar-track"><div class="bar-fill" style="width:28.6%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">Jhon Marín</span><div class="bar-track"><div class="bar-fill" style="width:28.6%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">Victor Gutierrez</span><div class="bar-track"><div class="bar-fill" style="width:28.6%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Magdalena</div><div class="bar-row wide" title="1 de 3 camas"><span class="lbl">1 oct</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">33%</span></div><div class="bar-row wide" title="0 de 1 camas"><span class="lbl">2 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 3 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 5 camas"><span class="lbl">5 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 2 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 3 camas"><span class="lbl">7 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 1 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="1 de 3 camas"><span class="lbl">9 oct</span><div class="bar-track"><div class="bar-fill" style="width:33.3%; background:var(--s1);"></div></div><span class="num">33%</span></div><div class="bar-row wide" title="2 de 4 camas"><span class="lbl">10 oct</span><div class="bar-track"><div class="bar-fill" style="width:50.0%; background:var(--s1);"></div></div><span class="num">50%</span></div><div class="bar-row wide" title="0 de 5 camas"><span class="lbl">13 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div></div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$52.000</div><div class="foot">4 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$100.000</div><div class="foot">$25.000 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$152.000</div><div class="foot">4 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item amber"><div class="stripe"></div><div><p><b>Productos con 0% armado</b> (con 3 o más camas con oportunidad de armar):</p><ul class="att-list"><li><b>Alcoba Doble Artemisa Eurolino Marfil, Natural</b> — 0 de 4</li></ul></div></div></div>
+    </section>
+  </div>
+  <div id="ma-oct-otros" class="panel">
+    <p class="tab-intro">Otros · 1 oct – 13 oct 2026 · 3 días con registro · 31 camas gestionadas · pago al transportador $25.000 por cama armada. Incluye Cesar 13, Sucre 11, Córdoba 5, Guajira 2 camas.</p>
+    
+    <section>
+      <div class="hero-grid five">
+        <div class="hero-card"><div class="label">% Armado — Otros</div><div class="value">0,0%</div><span class="chip flat">0 de 25 camas</span></div>
+        <div class="hero-card"><div class="label">Camas gestionadas</div><div class="value">31</div><div class="foot">31 OPs · 25 con oportunidad de armar</div></div>
+        <div class="hero-card"><div class="label">Armadas</div><div class="value" style="color:var(--good);">0</div><div class="foot">por el transportador en la entrega</div></div>
+        <div class="hero-card"><div class="label">No armadas</div><div class="value" style="color:var(--bad);">25</div><div class="foot">entregadas sin armar</div></div>
+        <div class="hero-card"><div class="label">Ahorro neto</div><div class="value" style="color:var(--good);">$0,00M</div><div class="foot">neto por cama: $13.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Motivos de no armado</h3><div class="sub">25 camas entregadas sin armar</div><div class="bar-row wide" title="68,0% de las no armadas"><span class="lbl">Cliente sin espacio</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s8);"></div></div><span class="num">17</span></div><div class="bar-row wide" title="16,0% de las no armadas"><span class="lbl">Tiene otros productos por armar</span><div class="bar-track"><div class="bar-fill" style="width:23.5%; background:var(--s8);"></div></div><span class="num">4</span></div><div class="bar-row wide" title="16,0% de las no armadas"><span class="lbl">Cliente recibe sin armar</span><div class="bar-track"><div class="bar-fill" style="width:23.5%; background:var(--s8);"></div></div><span class="num">4</span></div></div>
+        <div class="card"><h3>Resultado de las camas gestionadas</h3><div class="sub">31 camas gestionadas</div><div class="bar-row wide"><span class="lbl">Armadas</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--good);"></div></div><span class="num">0</span></div><div class="bar-row wide"><span class="lbl">No armadas</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--bad);"></div></div><span class="num">25</span></div><div class="bar-row wide"><span class="lbl">No entregada</span><div class="bar-track"><div class="bar-fill" style="width:8.0%; background:var(--muted);"></div></div><span class="num">2</span></div><div class="bar-row wide"><span class="lbl">Armado complejo</span><div class="bar-track"><div class="bar-fill" style="width:12.0%; background:var(--muted);"></div></div><span class="num">3</span></div><div class="bar-row wide"><span class="lbl">Pendiente / sin dato</span><div class="bar-track"><div class="bar-fill" style="width:4.0%; background:var(--muted);"></div></div><span class="num">1</span></div>
+          <p class="sub" style="margin-top:10px;">El % armado solo usa armadas + no armadas. No entregada, armado complejo y pendiente quedan fuera del cálculo.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="card"><h3>Armadas por conductor</h3><div class="sub">Camas de este departamento · barra azul = armadas, barra gris = camas con oportunidad de armar</div><div class="bar-row wide"><span class="lbl">Jose San Juan</span><div class="bar-track"><div class="bar-fill" style="width:100.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 5</span></div><div class="bar-row wide"><span class="lbl">Saul Charris</span><div class="bar-track"><div class="bar-fill" style="width:80.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 4</span></div><div class="bar-row wide"><span class="lbl">Jonathan De La Hoz</span><div class="bar-track"><div class="bar-fill" style="width:60.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 3</span></div><div class="bar-row wide"><span class="lbl">Richard Charris</span><div class="bar-track"><div class="bar-fill" style="width:60.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 3</span></div><div class="bar-row wide"><span class="lbl">Elkin Escamilla</span><div class="bar-track"><div class="bar-fill" style="width:40.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">Fabian Cardenas</span><div class="bar-track"><div class="bar-fill" style="width:40.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">Fernando Cantillo</span><div class="bar-track"><div class="bar-fill" style="width:40.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">Juan Sandoval</span><div class="bar-track"><div class="bar-fill" style="width:40.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 2</span></div><div class="bar-row wide"><span class="lbl">Carlos Torres</span><div class="bar-track"><div class="bar-fill" style="width:20.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 1</span></div><div class="bar-row wide"><span class="lbl">Franklin Padilla</span><div class="bar-track"><div class="bar-fill" style="width:20.0%; background:var(--s1); opacity:0.22;"></div><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0 / 1</span></div></div>
+        <div class="card"><h3>% Armado por día</h3><div class="sub">Otros</div><div class="bar-row wide" title="0 de 7 camas"><span class="lbl">3 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 8 camas"><span class="lbl">6 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div><div class="bar-row wide" title="0 de 10 camas"><span class="lbl">8 oct</span><div class="bar-track"><div class="bar-fill" style="width:0.0%; background:var(--s1);"></div></div><span class="num">0%</span></div></div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="section-head"><h2>Impacto económico</h2></div>
+      <div class="fin-strip">
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$0</div><div class="foot">0 camas armadas × (tarifa evitada − pago al transportador)</div></div>
+        <div class="fin-card"><div class="label">Pagado al transportador por armar</div><div class="value">$0</div><div class="foot">$25.000 por cama armada</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$0</div><div class="foot">0 camas × $38.000</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Puntos de atención</h2></div>
+      <div class="attention"><div class="att-item amber"><div class="stripe"></div><div><p><b>Productos con 0% armado</b> (con 3 o más camas con oportunidad de armar):</p><ul class="att-list"><li><b>Alcoba Doble Artemisa Eurolino Marfil, Natural</b> — 0 de 6</li></ul></div></div></div>
+    </section>
+  </div>
+
+  <div class="tab-footer">Fuente: <em>Gestión OPs armado transportista 2026.xlsx</em> (una hoja por día, 1 oct – 13 oct 2026). Corte: 15/10/2026, datos hasta el 13 oct; las hojas del 14 y 15 de octubre todavía no tienen la gestión completa y entran en el próximo corte. Unidad: cama = una fila OP + producto; una OP que aparece en varios días cuenta como un intento por día. % armado = armadas / (armadas + no armadas); no entregada (incluye producto agotado), armado complejo ("cama de armado complejo para el transportador", "complejo para armar") y pendiente / sin dato se reportan aparte. Ahorro neto por cama = $38.000 de tarifa de proveedor evitada − pago al transportador ($19.230 en Atlántico, $25.000 en Antioquia, Bolívar, Magdalena, Santander, Cesar, Córdoba, Sucre y Guajira). Una cama armada sin departamento (1 oct, conductor de Antioquia) solo suma en el total nacional, con tarifa de $25.000. Nombres de conductor normalizados con la misma lista de alias del README.</div>
+
+  </div><!-- /ma-octubre -->
+  <!-- OCTUBRE:END -->
+
+<!-- ======================= ATLÁNTICO ======================= -->
+  <div id="ma-atlantico" class="panel">
 
   <div class="tabbar" role="tablist">
     <button type="button" class="active" data-group="atl" data-target="ma-atl-total">Total</button>
@@ -541,44 +880,44 @@
   <!-- ======================= ANTIOQUIA ======================= -->
   <div id="ma-antioquia" class="panel">
 
-    <p class="tab-intro">6 de agosto – 16 de septiembre 2026 · 28 días con registro · 137 pedidos · 10 placas piloto (2 iniciales + 8 incorporadas en septiembre) · operador Home D by Ditransa + Jamar.</p>
+    <p class="tab-intro">6 de agosto – 29 de septiembre 2026 · 35 días con registro · 101 pedidos armados (109 camas) · 13 placas piloto · operador Home D by Ditransa + Jamar. El % armado se mide solo hasta el 16/09 — los cortes del 21 al 29 de septiembre solo reportan entregas con armado.</p>
 
     <section>
       <div class="hero-grid">
         <div class="hero-card">
-          <div class="label">% Armado global</div>
+          <div class="label">Pedidos armados — acumulado</div>
+          <div class="value" style="color:var(--good);">101</div>
+          <div class="foot">109 camas · 6 ago – 29 sep 2026</div>
+        </div>
+        <div class="hero-card">
+          <div class="label">Armados 21 – 29 sep</div>
+          <div class="value" style="color:var(--good);">48</div>
+          <span class="chip good">▲ 6,9/día vs. 2,8/día del 1 al 16 sep</span>
+        </div>
+        <div class="hero-card">
+          <div class="label">Armados en septiembre</div>
+          <div class="value">84</div>
+          <div class="foot">36 (1–16 sep) + 48 (21–29 sep)</div>
+        </div>
+        <div class="hero-card">
+          <div class="label">% Armado (6 ago – 16 sep)</div>
           <div class="value">38,7%</div>
-          <span class="chip flat">53 de 137 pedidos</span>
-        </div>
-        <div class="hero-card">
-          <div class="label">Pedidos registrados</div>
-          <div class="value">137</div>
-          <div class="foot">en 28 días con registro</div>
-        </div>
-        <div class="hero-card">
-          <div class="label">Armados</div>
-          <div class="value" style="color:var(--good);">53</div>
-          <div class="foot">en el momento de entrega</div>
-        </div>
-        <div class="hero-card">
-          <div class="label">No armados</div>
-          <div class="value" style="color:var(--bad);">84</div>
-          <div class="foot">entrega sin armar</div>
-        </div>
-        <div class="hero-card">
-          <div class="label">Placas piloto activas</div>
-          <div class="value">10</div>
-          <div class="foot">2 en agosto (SNT619, WPS678) → 8 más en septiembre</div>
+          <span class="chip flat">53 de 137 pedidos · último corte con registro completo</span>
         </div>
         <div class="hero-card">
           <div class="label">% Armado — Septiembre vs. Agosto</div>
           <div class="value" style="color:var(--good);">45,0%</div>
-          <span class="chip good">▲ +15,2 pp vs. agosto (29,8%)</span>
+          <span class="chip good">▲ +15,2 pp vs. agosto (29,8%) · sep. hasta el 16</span>
+        </div>
+        <div class="hero-card">
+          <div class="label">Placas piloto activas</div>
+          <div class="value">13</div>
+          <div class="foot">2 en agosto → 10 al 16 sep → 3 más (GTX077, LKO974, LQK537)</div>
         </div>
         <div class="hero-card">
           <div class="label">Ahorro neto generado</div>
-          <div class="value" style="color:var(--good);">$689.000</div>
-          <div class="foot">53 armadas × $13.000 neto (ver Impacto económico)</div>
+          <div class="value" style="color:var(--good);">$1.417.000</div>
+          <div class="foot">109 camas armadas × $13.000 neto (ver Impacto económico)</div>
         </div>
       </div>
     </section>
@@ -586,20 +925,23 @@
     <section>
       <div class="split">
         <div class="card">
-          <h3>Top placas por pedidos registrados</h3>
-          <div class="sub">Top 6 de 10 placas piloto · 6 ago – 16 sep 2026</div>
-          <div class="bar-row"><span class="lbl">WPS678</span><div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--s1);"></div></div><span class="num">62</span></div>
-          <div class="bar-row"><span class="lbl">SNT619</span><div class="bar-track"><div class="bar-fill" style="width:59.7%; background:var(--s1);"></div></div><span class="num">37</span></div>
-          <div class="bar-row"><span class="lbl">FSU555</span><div class="bar-track"><div class="bar-fill" style="width:12.9%; background:var(--s1);"></div></div><span class="num">8</span></div>
-          <div class="bar-row"><span class="lbl">JYO435</span><div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--s1);"></div></div><span class="num">6</span></div>
-          <div class="bar-row"><span class="lbl">PXK549</span><div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--s1);"></div></div><span class="num">6</span></div>
-          <div class="bar-row"><span class="lbl">LUN307</span><div class="bar-track"><div class="bar-fill" style="width:9.7%; background:var(--s1);"></div></div><span class="num">6</span></div>
+          <h3>Top placas por pedidos armados</h3>
+          <div class="sub">Top 6 de 13 placas piloto · 6 ago – 29 sep 2026</div>
+          <div class="bar-row"><span class="lbl">WPS678</span><div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--s1);"></div></div><span class="num">38</span></div>
+          <div class="bar-row"><span class="lbl">SNT619</span><div class="bar-track"><div class="bar-fill" style="width:47.4%; background:var(--s1);"></div></div><span class="num">18</span></div>
+          <div class="bar-row"><span class="lbl">LUN307</span><div class="bar-track"><div class="bar-fill" style="width:31.6%; background:var(--s1);"></div></div><span class="num">12</span></div>
+          <div class="bar-row"><span class="lbl">JYO435</span><div class="bar-track"><div class="bar-fill" style="width:18.4%; background:var(--s1);"></div></div><span class="num">7</span></div>
+          <div class="bar-row"><span class="lbl">FSU555</span><div class="bar-track"><div class="bar-fill" style="width:13.2%; background:var(--s1);"></div></div><span class="num">5</span></div>
+          <div class="bar-row"><span class="lbl">LKL131</span><div class="bar-track"><div class="bar-fill" style="width:13.2%; background:var(--s1);"></div></div><span class="num">5</span></div>
         </div>
         <div class="card">
-          <h3>Pedidos: armados vs. no armados</h3>
-          <div class="sub">Total acumulado del piloto, 6 ago – 16 sep 2026</div>
-          <div class="bar-row"><span class="lbl">Armados</span><div class="bar-track"><div class="bar-fill" style="width:38.7%; background:var(--good);"></div></div><span class="num">53</span></div>
-          <div class="bar-row"><span class="lbl">No armados</span><div class="bar-track"><div class="bar-fill" style="width:61.3%; background:var(--bad);"></div></div><span class="num">84</span></div>
+          <h3>Pedidos armados por corte</h3>
+          <div class="sub">Pedidos únicos con entrega con armado</div>
+          <div class="bar-row"><span class="lbl">6 – 31 ago</span><div class="bar-track"><div class="bar-fill" style="width:47.2%; background:var(--good);"></div></div><span class="num">17</span></div>
+          <div class="bar-row"><span class="lbl">1 – 16 sep</span><div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--good);"></div></div><span class="num">36</span></div>
+          <div class="bar-row"><span class="lbl">21 – 24 sep</span><div class="bar-track"><div class="bar-fill" style="width:63.9%; background:var(--good);"></div></div><span class="num">23</span></div>
+          <div class="bar-row"><span class="lbl">25 – 29 sep</span><div class="bar-track"><div class="bar-fill" style="width:69.4%; background:var(--good);"></div></div><span class="num">25</span></div>
+          <p class="sub" style="margin-top:10px;">Sin registro del 17 al 20 de septiembre (no viene en ningún corte).</p>
         </div>
       </div>
     </section>
@@ -608,7 +950,7 @@
       <div class="split">
         <div class="card">
           <h3>Causales — pedidos no armados</h3>
-          <div class="sub">84 casos, 6 ago – 16 sep 2026</div>
+          <div class="sub">84 casos, 6 ago – 16 sep 2026 (los cortes posteriores no reportan no armados)</div>
           <div class="bar-row"><span class="lbl">Decisión del cliente</span><div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--s8);"></div></div><span class="num">32</span></div>
           <div class="bar-row"><span class="lbl">Sin armado (sin especificar)</span><div class="bar-track"><div class="bar-fill" style="width:62.5%; background:var(--s8);"></div></div><span class="num">20</span></div>
           <div class="bar-row"><span class="lbl">Cliente ausente</span><div class="bar-track"><div class="bar-fill" style="width:31.3%; background:var(--s8);"></div></div><span class="num">10</span></div>
@@ -618,7 +960,7 @@
         </div>
         <div class="card">
           <h3>% Armado por mes</h3>
-          <div class="sub">Agosto (parcial desde el 6) vs. Septiembre (parcial hasta el 16)</div>
+          <div class="sub">Agosto (desde el 6) vs. Septiembre (1 – 16, último tramo con registro completo)</div>
           <div class="trio" id="ma-antioquia-trio"></div>
         </div>
       </div>
@@ -627,9 +969,11 @@
     <section>
       <div class="section-head"><h2>Impacto económico</h2></div>
       <div class="fin-strip">
-        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$689.000</div><div class="foot">53 armadas × ($38.000 tarifa proveedor evitada − $25.000 pagado al conductor)</div></div>
+        <div class="fin-card"><div class="label">Ahorro neto generado</div><div class="value">$1.417.000</div><div class="foot">109 camas armadas × ($38.000 tarifa proveedor evitada − $25.000 pagado al conductor)</div></div>
+        <div class="fin-card"><div class="label">Pagado al conductor por armar</div><div class="value">$2.725.000</div><div class="foot">109 camas × $25.000 · incluye $1.275.000 facturados en los cortes del 21 al 29 sep (51 camas)</div></div>
+        <div class="fin-card"><div class="label">Tarifa de proveedor evitada</div><div class="value">$4.142.000</div><div class="foot">109 camas × $38.000</div></div>
       </div>
-      <p class="sub" style="margin-top:10px;">A diferencia de Atlántico, en Antioquia el conductor sí recibe pago adicional por armar ($25.000 por cama) — el ahorro es neto, no el valor completo de la tarifa evitada. Tarifa de proveedor evitada ($38.000) es la misma referencia usada en Atlántico (especialista de armado).</p>
+      <p class="sub" style="margin-top:10px;">A diferencia de Atlántico, en Antioquia el conductor sí recibe pago adicional por armar ($25.000 por cama) — el ahorro es neto, no el valor completo de la tarifa evitada. Se calcula por cama (SKU) armada, que es la unidad en la que se le paga al conductor: un pedido puede traer más de una cama (101 pedidos = 109 camas). Tarifa de proveedor evitada ($38.000) es la misma referencia usada en Atlántico (especialista de armado).</p>
     </section>
 
     <section>
@@ -639,7 +983,8 @@
         <p class="phase"><b>12 de agosto</b> — inicio del piloto ajustado y estandarizado, tras identificar oportunidades.</p>
         <p class="phase"><b>14 de agosto</b> — revisión integral del piloto (planeación a ejecución), responsabilidades y monitoreo diario definidos.</p>
         <p class="phase"><b>18 de agosto</b> — arranca el agendamiento a clientes, buscando mayor disposición para recibir el servicio.</p>
-        <p class="phase"><b>Septiembre</b> — el piloto amplía su flota de 2 a 10 placas, y empieza a llegar registro viaje a viaje (antes solo había un corte agregado en PDF).</p>
+        <p class="phase"><b>Septiembre (1 – 16)</b> — el piloto amplía su flota de 2 a 10 placas, y empieza a llegar registro viaje a viaje (antes solo había un corte agregado en PDF).</p>
+        <p class="phase"><b>21 – 29 de septiembre</b> — se suman 3 placas (13 en total) y el ritmo sube a ~7 pedidos armados por día; llegan cortes de facturación al conductor (solo entregas con armado).</p>
       </div>
     </section>
 
@@ -654,19 +999,21 @@
     <section>
       <div class="section-head"><h2>Puntos de atención</h2></div>
       <div class="attention">
-        <div class="att-item good"><div class="stripe"></div><p><b>Nueva fuente de datos viaje a viaje</b> (<em>Consolidado armados jamar Antioquia.xlsx</em>) reemplaza el corte agregado en PDF (12–24 ago) — cubre 6 ago–16 sep con 137 pedidos y ya no depende de un solo corte puntual.</p></div>
-        <div class="att-item good"><div class="stripe"></div><p><b>El % armado mejoró fuerte en septiembre</b> (29,8% agosto → 45,0% septiembre) — la mejor cifra desde el inicio del piloto, coincide con la ampliación de flota a 10 placas.</p></div>
-        <div class="att-item amber"><div class="stripe"></div><p><b>Metodología distinta a la del corte PDF anterior:</b> esta cifra no excluye causales "no atribuibles" (como sí hacía la efectividad ajustada del 88,2% del corte de agosto) — es una lectura más conservadora, más parecida al % armado del piloto Atlántico, pero las dos regiones siguen sin ser comparables entre sí (pedidos vs. camas).</p></div>
-        <div class="att-item"><div class="stripe"></div><p>"Decisión del cliente" sigue siendo la causal dominante de no armado (32 de 84 casos, 38%) — igual que en el corte anterior.</p></div>
+        <div class="att-item good"><div class="stripe"></div><p><b>El ritmo de armado se dispara al cierre de septiembre:</b> 48 pedidos armados entre el 21 y el 29 (6,9 por día) frente a 36 en la primera quincena (2,8 por día). Septiembre suma 84 pedidos armados, casi 5 veces agosto (17).</p></div>
+        <div class="att-item good"><div class="stripe"></div><p><b>El % armado mejoró fuerte en septiembre</b> (29,8% agosto → 45,0% del 1 al 16 sep) — la mejor cifra medible del piloto, coincide con la ampliación de flota.</p></div>
+        <div class="att-item amber"><div class="stripe"></div><p><b>Los cortes del 21 al 29 de septiembre solo traen entregas con armado</b> (son la facturación al conductor) — no permiten calcular el % armado ni las causales de ese tramo. Para mantener el indicador hace falta que el operador envíe también las entregas sin armado. Además, no hay datos del 17 al 20 de septiembre.</p></div>
+        <div class="att-item amber"><div class="stripe"></div><p><b>Metodología distinta a la del corte PDF anterior:</b> el % armado no excluye causales "no atribuibles" (como sí hacía la efectividad ajustada del 88,2% del corte de agosto) — es una lectura más conservadora, más parecida al % armado del piloto Atlántico, pero las dos regiones siguen sin ser comparables entre sí (pedidos vs. camas).</p></div>
+        <div class="att-item"><div class="stripe"></div><p>Un pedido que el 8 de septiembre no se armó por cliente ausente (A8-2026-4586517) se armó en la re-entrega del 23 — se cuenta una sola vez como armado en el acumulado.</p></div>
+        <div class="att-item"><div class="stripe"></div><p>"Decisión del cliente" sigue siendo la causal dominante de no armado (32 de 84 casos, 38%, al 16 de septiembre).</p></div>
       </div>
     </section>
 
-  <div class="tab-footer">Fuente: <em>Consolidado armados jamar Antioquia.xlsx</em> (hoja "Operación", registro viaje a viaje, Home D by Ditransa + Jamar). Corte: 17/09/2026, datos del 6 de agosto al 16 de septiembre de 2026. Reemplaza el corte agregado anterior (<em>Seguimiento piloto armados jamar 25-08-2026.pdf</em>, 12–24 ago). — La sección "Oportunidad Mediana complejidad" usa <em>Facturacion AGOSTO</em> (facturación real de los 6 proveedores externos, agosto 2026 completo) cruzada con el catálogo de complejidad V2; ver <em>Facturacion AGOSTO/README_analisis_facturacion.md</em> para la metodología completa.</div>
+  <div class="tab-footer">Fuentes: <em>Consolidado armados jamar Antioquia.xlsx</em> (hoja "Operación", registro viaje a viaje con armados y no armados, 6 ago – 16 sep 2026) + <em>Consolidado Armados jamar corte del 20 al 24 de septiembre 2026.xlsx</em> y <em>corte del 25 al 29 de septiembre.xlsx</em> (facturación al conductor, solo entregas con armado, 21 – 29 sep 2026). Home D by Ditransa + Jamar. Corte: 01/10/2026. Pedidos contados como pedido único (no por SKU); ahorro calculado por cama (SKU). — La sección "Oportunidad Mediana complejidad" usa <em>Facturacion AGOSTO</em> (facturación real de los 6 proveedores externos, agosto 2026 completo) cruzada con el catálogo de complejidad V2; ver <em>Facturacion AGOSTO/README_analisis_facturacion.md</em> para la metodología completa.</div>
 
   </div><!-- /ma-antioquia -->
 
   <footer class="page-footer">
-    Atlántico y Antioquia son dos pilotos regionales de la iniciativa <b>Mix de Armado</b>, reportados por separado — usan unidades distintas (camas despachadas/armadas vs. pedidos armados/no armados) y no se comparan entre sí directamente. Fuentes: <em>PILOTO MIX DE ARMADO 2026.xlsx</em> (Atlántico, corte al 29/09/2026) y <em>Consolidado armados jamar Antioquia.xlsx</em> (Antioquia, registro viaje a viaje, corte al 16/09/2026). Para el detalle diario y por conductor del piloto Atlántico, ver <em>Informe Piloto Armado en Entrega.html</em>.
+    Desde el 1 de octubre de 2026 el seguimiento es nacional, con una sola fuente por departamento (<em>Gestión OPs armado transportista 2026.xlsx</em>, pestaña Octubre) y medido en camas (fila OP + producto) — no se compara 1 a 1 con los pilotos de julio a septiembre. Atlántico y Antioquia son dos pilotos regionales de la iniciativa <b>Mix de Armado</b>, reportados por separado — usan unidades distintas (camas despachadas/armadas vs. pedidos armados/no armados) y no se comparan entre sí directamente. Fuentes: <em>PILOTO MIX DE ARMADO 2026.xlsx</em> (Atlántico, corte al 29/09/2026) y <em>Consolidado armados jamar Antioquia.xlsx</em> (Antioquia, registro viaje a viaje al 16/09/2026, más los cortes de armados del 21 al 29/09/2026). Para el detalle diario y por conductor del piloto Atlántico, ver <em>Informe Piloto Armado en Entrega.html</em>.
   </footer>
 
 </div>
